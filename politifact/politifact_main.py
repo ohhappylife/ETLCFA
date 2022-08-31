@@ -1,5 +1,4 @@
 from datetime import date
-
 import politifact_transofrm
 import os
 import pandas as pd
