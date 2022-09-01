@@ -1,3 +1,16 @@
+"""
+  remove_stop_words.py
+  Get dataframe, remove the stopwords from the columns
+    requirements : dataframe shall have columns with "Title_without_stopwords" and "Text_without_stopwords"
+    limitations: if the columns contain missing value, errors can be thrown.
+    input : dataframe
+    output : dataframe
+"""
+__author__ = "Shon"
+__version__ = "1.0.1"
+__email__ = "sshon2@alumni.jh.edu"
+__status__ = "Development"
+
 import nltk
 from nltk.corpus import stopwords
 

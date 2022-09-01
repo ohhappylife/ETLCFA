@@ -1,3 +1,15 @@
+"""
+  load_csv_file.py
+  load csv file from the current working directory
+    requirements : csv formatted files shall be in the cwd
+    input : csv file
+    output : dataframe
+"""
+__author__ = "Shon"
+__version__ = "1.0.1"
+__email__ = "sshon2@alumni.jh.edu"
+__status__ = "Production"
+
 import os
 import pandas as pd
 

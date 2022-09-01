@@ -1,9 +1,22 @@
+"""
+  save_csv_file.py
+  save dataframe into cwd at current working directory
+    param : dataframe, output folder name, output file name
+    requirements : Users shall have privileges to save the file into a cwd.
+    input : dataframe
+    output : csv file
+"""
+__author__ = "Shon"
+__version__ = "1.0.1"
+__email__ = "sshon2@alumni.jh.edu"
+__status__ = "Production"
+
 import os
 
-def save_file(df, name):
+def save_file(df, folder_name, file_name):
   cwd = os.getcwd()
-  filename = name + ".csv"
-  fileloc = os.path.join(cwd, filename)
+  filename = file_name + ".csv"
+  fileloc = os.path.join(cwd, folder_name)
   if not os.path.exists(fileloc):
     os.mkdir(fileloc)
 

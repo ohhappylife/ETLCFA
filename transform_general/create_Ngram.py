@@ -1,5 +1,18 @@
+"""
+  create_Ngram.py
+  Generating N-gram from sentences
+    requirements : dataframe shall have columns of Title_without_stopwords columns and Text_without_stopwords columns
+    input : dataframe Title_without_stopwords columns and Text_without_stopwords columns
+    output : unigram, bigram, trigram of input
+  To change the N-gram (e.g., to quadgram), chane the range in for-loop.
+"""
+__author__ = "Shon"
+__version__ = "1.0.1"
+__email__ = "sshon2@alumni.jh.edu"
+__status__ = "Production"
+
 import pandas as pd
-import save_csv_file
+from transform_general import save_csv_file
 import re
 import unicodedata
 import nltk
@@ -23,7 +36,7 @@ def Ngram(df, name):
 
     ngram_title = (pd.Series(nltk.ngrams(title, i)).value_counts()).reset_index()
     ngram_value = (pd.Series(nltk.ngrams(text, i)).value_counts()).reset_index()
-    save_csv_file.save_file(ngram_title, ftitle)
-    save_csv_file.save_file(ngram_value, fvalue)
+    save_csv_file.save_file(ngram_title, 'politifact_Ngram_title',ftitle)
+    save_csv_file.save_file(ngram_value, 'politifact_Ngram_article',fvalue)
 
 

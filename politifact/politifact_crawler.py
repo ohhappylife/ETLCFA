@@ -1,3 +1,18 @@
+"""
+  politifact_cralwer.py
+  crawl the data from politifact.
+  url : https://www.politifact.com/factchecks/list/
+    requirements : Users shall have privileges to save the file into a cwd.
+    input : none
+    output : csv file with columns of
+    ['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
+       'Language', 'Site_url', 'Main_img_url', 'Type', 'Label', 'hasImage']
+"""
+__author__ = "Shon"
+__version__ = "1.0.1"
+__email__ = "sshon2@alumni.jh.edu"
+__status__ = "Production"
+
 from datetime import date
 
 from bs4 import BeautifulSoup
@@ -84,4 +99,4 @@ df['hasImage'] = False
 #Show the data set
 today = date.today()
 fname = "politifact_" + str(today)
-save_csv_file.save_file(df, fname)
+save_csv_file.save_file(df, 'politifact_uncleared', fname)
