@@ -33,7 +33,7 @@ def transofmr_politifact(df):
   df = df[df['Label'] != 'full-flip']
   df = df[df['Label'] != 'no-flip']
 
-  remove_stop_words.remove_stopwords(df)
+  df = remove_stop_words.remove_stopwords(df)
 
   df.dropna(subset=['Title'], inplace=True)
   df.drop(columns=['Label'])
