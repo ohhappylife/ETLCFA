@@ -2,6 +2,7 @@ from datetime import date
 import os
 import pandas as pd
 
+import transform_general.remove_stop_words
 from googleNews import google_transform
 from transform_general import save_csv_file, create_Ngram
 
@@ -11,7 +12,7 @@ today = date.today()
 wdir = "google_uncleared/" + "google_" + str(today) + ".csv"
 df = pd.read_csv(wdir)
 df = google_transform.changeDateType(df)
-df = google_transform.remove_stopwords(df)
+df = transform_general.remove_stop_words.remove_stopwords(df)
 
 today = date.today()
 fname = "cleaned_google" + str(today)
