@@ -1,15 +1,13 @@
 from datetime import date
-
 from serpapi import GoogleSearch
-import json
 import pandas as pd
-
+import temp
 from transform_general import save_csv_file
 
 params = {
-    "api_key": "",
+    "api_key": temp.google(), # Please user your own API Key.
     "engine": "google",
-    "q": "cola",     # keywords
+    "q": "cola",     # keywords to be searched (Required)
     "gl": "us",
     "tbm": "nws"
 }
