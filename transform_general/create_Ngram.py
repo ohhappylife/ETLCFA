@@ -12,6 +12,8 @@ __email__ = "sshon2@alumni.jh.edu"
 __status__ = "Production"
 
 import pandas as pd
+
+import temp
 from transform_general import save_csv_file
 import re
 import unicodedata
@@ -31,12 +33,13 @@ def Ngram(df, name):
   text = basic_clean(''.join(str(df['Text_without_stopwords'].tolist())))
 
   for i in range(1,4):
-    ftitle = name + "_title_" + '_' + str(i)
-    fvalue = name + "_text_" + '_' + str(i)
+    ftitle = name + "_title_" + '_' + str(i) + '.csv'
+    fvalue = name + "_text_" + '_' + str(i) + '.csv'
 
     ngram_title = (pd.Series(nltk.ngrams(title, i)).value_counts()).reset_index()
     ngram_value = (pd.Series(nltk.ngrams(text, i)).value_counts()).reset_index()
-    save_csv_file.save_file(ngram_title, 'politifact_Ngram_title',ftitle)
-    save_csv_file.save_file(ngram_value, 'politifact_Ngram_article',fvalue)
+
+    temp.savetoBucket(ngram_title, 'ngram', ftitle)
+    temp.savetoBucket(ngram_value, 'ngram', fvalue)
 
 

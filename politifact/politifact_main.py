@@ -11,20 +11,20 @@ __email__ = "sshon2@alumni.jh.edu"
 __status__ = "Production"
 
 from datetime import date
-import politifact_transofrm
-import os
-import pandas as pd
+
+import temp
+from politifact import politifact_transofrm, politifact_crawler
 from transform_general import save_csv_file, create_Ngram
 
-os.system('python politifact_crawler.py')
-today = date.today()
+def crawlit():
+  df = politifact_crawler.runit()
+  df = politifact_transofrm.transofmr_politifact(df)
 
-wdir = "politifact_uncleared/" + "politifact_" + str(today) + ".csv"
-df = pd.read_csv(wdir)
-df = politifact_transofrm.transofmr_politifact(df)
+  today = date.today()
+  fname = "cleaned_politifact_" + str(today) + '.csv'
 
-today = date.today()
-fname = "cleaned_politifact_" + str(today)
-save_csv_file.save_file(df, 'plitifact_cleared',fname)
+  temp.savetoBucket(df, 'newsdata', fname)
 
-create_Ngram.Ngram(df, 'politifact_Ngram')
+  create_Ngram.Ngram(df, 'politifact_Ngram' + str(today))
+
+crawlit()

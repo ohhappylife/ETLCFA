@@ -3,7 +3,6 @@ from serpapi import GoogleSearch
 import pandas as pd
 import temp
 from transform_general import save_csv_file
-keyword = ""
 
 def crawlData(keyword):
     params = {
@@ -32,11 +31,11 @@ def crawlData(keyword):
     df['Main_img_url'] = df_temp['thumbnail']
     df['Type']  = 'Unknown'
     df['Label'] = 'Unknown'
-    df['hasImage'] = df_temp['thumbnail'].isnull() == False
+    df['hasImage'] = "Unknown"
 
     #Show the data set
     today = date.today()
-    fname = "google_" + str(today)
-    save_csv_file.save_file(df, 'google_uncleared', fname)
+    fname = "uncleared_google_" + str(today) + '.csv'
+    temp.savetoBucket(df, 'newsdata', fname)
 
     return df

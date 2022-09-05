@@ -2,16 +2,17 @@ from datetime import date
 
 import temp
 import transform_general.remove_stop_words
-from googleNews import google_transform, google_crawler
 from transform_general import save_csv_file, create_Ngram
+from newscatcher import news_transform, news_catcher_crawler
 
 def googleNews(keyword):
-  df = google_crawler.crawlData(keyword)
-  df = google_transform.changeDateType(df)
+
+  df = news_catcher_crawler.newsCatcher(keyword)
+  df = news_transform.remove_stopwords(df)
   df = transform_general.remove_stop_words.remove_stopwords(df)
 
   today = date.today()
-  fname = "cleaned_google_" + str(today) + '.csv'
+  fname = "cleaned_news_catcher_" + str(today) + '.csv'
 
   temp.savetoBucket(df, 'newsdata', fname)
-  create_Ngram.Ngram(df, 'google_Ngram' + str(today))
+  create_Ngram.Ngram(df, 'news_catcher' + str(today))
