@@ -6,10 +6,10 @@ import pandas as pd
 def crawlData(keyword):
   newsapi = NewsApiClient(api_key=temp.news())
 
-  yesterday = date.today() - timedelta(days=1)
+  yesterday = date.today() - timedelta(days=2)
   today = date.today()
 
-  all_articles = newsapi.get_everything(q='bitcoin',
+  all_articles = newsapi.get_everything(q=keyword,
                                         from_param=yesterday,
                                         to=today,
                                         language='en',
@@ -45,6 +45,6 @@ def crawlData(keyword):
   # Show the data set
   today = date.today()
   fname = "uncleared_news_" + str(today) + '.csv'
-  df.savetoBucket(df, 'newsdata', fname)
+  temp.savetoBucket(df_temp, 'newsdata', fname)
 
   return df
