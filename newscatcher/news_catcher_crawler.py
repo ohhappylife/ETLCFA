@@ -1,10 +1,10 @@
 from newscatcherapi import NewsCatcherApiClient
-import temp
+import information
 from datetime import date
 import pandas as pd
 
 def newsCatcher(keyword):
-  newscatcherapi = NewsCatcherApiClient(temp.catcher())
+  newscatcherapi = NewsCatcherApiClient(information.catcher())
   news_articles = newscatcherapi.get_search(q=keyword)
   df = pd.DataFrame.from_dict(news_articles, orient='index').T
   df_temp = (pd.concat({i: pd.DataFrame(x) for i, x in df.pop('articles').items()})
@@ -31,6 +31,6 @@ def newsCatcher(keyword):
   # Show the data set
   today = date.today()
   fname = "uncleared_news_catcher" + str(today) + '.csv'
-  temp.savetoBucket(df, 'newsdata', fname)
+  information.savetoBucket(df, 'newsdata', fname)
 
   return df

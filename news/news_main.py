@@ -1,7 +1,7 @@
 from news import news_crawler, news_transform
 from transform_general import remove_stop_words, create_Ngram
 from datetime import date
-import temp
+import information
 
 def news(keyword):
 
@@ -12,5 +12,5 @@ def news(keyword):
   today = date.today()
   fname = "cleaned_news" + str(today) + '.csv'
 
-  temp.savetoBucket(df, 'newsdata', fname)
+  information.savetoBucket(df, 'newsdata', fname)
   create_Ngram.Ngram(df, 'news' + str(today))

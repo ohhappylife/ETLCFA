@@ -1,11 +1,11 @@
 from datetime import date
 from serpapi import GoogleSearch
 import pandas as pd
-import temp
+import information
 
 def crawlData(keyword):
     params = {
-        "api_key": temp.google(), # Please user your own API Key.
+        "api_key": information.google(), # Please user your own API Key.
         "engine": "google",
         "q": keyword,     # keywords to be searched (Required)
         "gl": "us",
@@ -35,6 +35,6 @@ def crawlData(keyword):
     #Show the data set
     today = date.today()
     fname = "uncleared_google_" + str(today) + '.csv'
-    temp.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket(df, 'newsdata', fname)
 
     return df

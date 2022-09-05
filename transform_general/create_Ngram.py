@@ -12,8 +12,7 @@ __email__ = "sshon2@alumni.jh.edu"
 __status__ = "Production"
 
 import pandas as pd
-
-import temp
+import information
 import re
 import unicodedata
 import nltk
@@ -38,7 +37,7 @@ def Ngram(df, name):
     ngram_title = (pd.Series(nltk.ngrams(title, i)).value_counts()).reset_index()
     ngram_value = (pd.Series(nltk.ngrams(text, i)).value_counts()).reset_index()
 
-    temp.savetoBucket(ngram_title, 'ngram', ftitle)
-    temp.savetoBucket(ngram_value, 'ngram', fvalue)
+    information.savetoBucket(ngram_title, 'ngram', ftitle)
+    information.savetoBucket(ngram_value, 'ngram', fvalue)
 
 

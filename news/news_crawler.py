@@ -1,10 +1,10 @@
 from newsapi import NewsApiClient
-import temp
+import information
 from datetime import date, timedelta
 import pandas as pd
 
 def crawlData(keyword):
-  newsapi = NewsApiClient(api_key=temp.news())
+  newsapi = NewsApiClient(api_key=information.news())
 
   yesterday = date.today() - timedelta(days=2)
   today = date.today()
@@ -45,6 +45,6 @@ def crawlData(keyword):
   # Show the data set
   today = date.today()
   fname = "uncleared_news_" + str(today) + '.csv'
-  temp.savetoBucket(df_temp, 'newsdata', fname)
+  information.savetoBucket(df_temp, 'newsdata', fname)
 
   return df

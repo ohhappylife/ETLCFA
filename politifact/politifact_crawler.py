@@ -19,7 +19,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 
-import temp
+import information
 from transform_general import save_csv_file
 import re
 
@@ -102,6 +102,6 @@ def runit():
     #Show the data set
     today = date.today()
     fname = "uncleared_politifact_" + str(today) + '.csv'
-    temp.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket(df, 'newsdata', fname)
 
     return df

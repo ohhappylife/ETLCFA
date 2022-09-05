@@ -12,7 +12,7 @@ __status__ = "Production"
 
 from datetime import date
 
-import temp
+import information
 from politifact import politifact_transofrm, politifact_crawler
 from transform_general import save_csv_file, create_Ngram
 
@@ -23,7 +23,7 @@ def crawlit():
   today = date.today()
   fname = "cleaned_politifact_" + str(today) + '.csv'
 
-  temp.savetoBucket(df, 'newsdata', fname)
+  information.savetoBucket(df, 'newsdata', fname)
 
   create_Ngram.Ngram(df, 'politifact_Ngram' + str(today))
 
