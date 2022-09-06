@@ -14,7 +14,7 @@ def crawlData(keyword):
 
     search = GoogleSearch(params)   # where data extraction happens on the backend
     results = search.get_dict()     # JSON - > Python dictionary
-    result = results["news_results"]
+    result = results["news_results"] # get news information only.
 
     df_temp = pd.DataFrame(result)
     df = pd.DataFrame(columns = ['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
