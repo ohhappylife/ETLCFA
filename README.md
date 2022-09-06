@@ -7,12 +7,16 @@ Users can set keyword for the articles for search (except politifact).
 ## Source
 This will collect news from following sources:
   - Google News
+    - https://news.google.com/
   - News API
+    - https://newsapi.org/
   - NewsCatcher News API
+    - https://newscatcherapi.com/
   - Politifact
+    - https://www.politifact.com/
 
 ## How to use
-- Please install rquired library (refer Requirements.txt)
+- Please install required library (refer Requirements.txt)
 - Please fill API keys and AWS S3 information into the temp.py file
 - Run the main.py with through the command line.
   - e.g., python main.py {keyword} {newsCatcher if 1} {googleNews if 1} {Politifact if 1} {News API if 1}
