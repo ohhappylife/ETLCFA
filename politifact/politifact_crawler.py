@@ -23,6 +23,8 @@ import information
 from transform_general import save_csv_file
 import re
 
+today = date.today()
+
 authors = []
 dates = []
 statements = []
@@ -83,6 +85,8 @@ def runit():
         scrape_website(i, source='')
 
 
+
+
     #Create a new dataFrame
     df = pd.DataFrame(columns = ['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
            'Language', 'Site_url', 'Main_img_url', 'Type', 'Label', 'hasImage'])
@@ -100,7 +104,10 @@ def runit():
     df['hasImage'] = False
 
     #Show the data set
-    today = date.today()
+
+    fname = "raw_politifact" + str(today) + '.csv'
+    information.savetoBucket(df, 'newsdata', fname)
+
     fname = "uncleared_politifact_" + str(today) + '.csv'
     information.savetoBucket(df, 'newsdata', fname)
 

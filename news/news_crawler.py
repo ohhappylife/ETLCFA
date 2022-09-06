@@ -26,6 +26,9 @@ def crawlData(keyword):
   normalized = pd.json_normalize(df_temp['source'])
   df_temp = df_temp.join(normalized).drop(columns=['source'])
 
+  fname = "raw_news" + str(today) + '.csv'
+  information.savetoBucket(df_temp, 'newsdata', fname)
+
   df = pd.DataFrame(
     columns=['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
              'Language', 'Site_url', 'Main_img_url', 'Type', 'Label', 'hasImage'])

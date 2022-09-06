@@ -4,6 +4,9 @@ import pandas as pd
 import information
 
 def crawlData(keyword):
+
+    today = date.today()
+
     params = {
         "api_key": information.google(), # Please user your own API Key.
         "engine": "google",
@@ -17,6 +20,10 @@ def crawlData(keyword):
     result = results["news_results"] # get news information only.
 
     df_temp = pd.DataFrame(result)
+
+    fname = "raw_google" + str(today) + '.csv'
+    information.savetoBucket(df_temp, 'newsdata', fname)
+
     df = pd.DataFrame(columns = ['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
            'Language', 'Site_url', 'Main_img_url', 'Type', 'Label', 'hasImage'])
     df['Author'] = df_temp['source']

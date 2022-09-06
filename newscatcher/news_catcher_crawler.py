@@ -4,6 +4,8 @@ from datetime import date
 import pandas as pd
 
 def newsCatcher(keyword):
+  today = date.today()
+
   newscatcherapi = NewsCatcherApiClient(information.catcher())
   news_articles = newscatcherapi.get_search(q=keyword)
   df = pd.DataFrame.from_dict(news_articles, orient='index').T
@@ -11,6 +13,9 @@ def newsCatcher(keyword):
            .reset_index(level=1, drop=True)
            .join(df)
            .reset_index(drop=True))
+
+  fname = "raw_news_catcher" + str(today) + '.csv'
+  information.savetoBucket(df, 'newsdata', fname)
 
   df = pd.DataFrame(
     columns=['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
@@ -29,7 +34,6 @@ def newsCatcher(keyword):
   df['hasImage'] = 'Unknwon'
 
   # Show the data set
-  today = date.today()
   fname = "uncleared_news_catcher" + str(today) + '.csv'
   information.savetoBucket(df, 'newsdata', fname)
 
