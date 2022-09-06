@@ -27,5 +27,7 @@ This will collect news from following sources:
 - As it utilizes default list of stopwords from NLTK, not all stopwords might be removed during the process.
 
 ## Important
-- <i> dataset_example </i> forder has contains example dataset (keyword = <i> 'tesla' </i>).
+- <i> dataset_example </i> forder or a following google drive link that have example dataset (keyword = <i> 'tesla' </i>).
+  : <a href = https://drive.google.com/drive/folders/1m9t2SsQpaIfcqVU6PlVeNv5ePm9kZuXb?usp=sharing> Google Drive </a>
+  / <a href = https://github.com/ohhappylife/ETLCFA/tree/master/dataset_example> Folder </a>
 - As of September 05, 2022, development is in progress; pipeline is NOT fault-tolerant and might be unstable.
