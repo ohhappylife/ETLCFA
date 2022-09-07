@@ -26,7 +26,9 @@ This will collect news from following sources:
 - Result (collected data, N-gram result) will be stored on S3 Bucket.
 
 ## Issues (To-be fixed)
-- A pipeline is not a fault-tolerant, and the pipeline does not have function to validate the data.
+- The pipeline is not a fault-tolerant
+- The pipeline does not have function to validate the data.
+- The pipeline does not store logs.
 - As it utilizes default list of stopwords from NLTK, not all stopwords might be removed during the process.
 - Stores login credentials into codes can increase chance of data breach.
 
@@ -37,5 +39,5 @@ This will collect news from following sources:
 ## Important
 - <i> dataset_example </i> forder or a following google drive link that have example dataset (keyword = <i> 'tesla' </i>).
   : <a href = https://tinyurl.com/42f95xvb> Google Drive </a>
-  / <a href = https://github.com/ohhappylife/ETLCFA/tree/master/dataset_example> Folder </a>
+  / <a href = https://github.com/ohhappylife/ETLCFA/tree/master/dataset_example> Github Folder </a>
 - As of September 05, 2022, development is in progress; pipeline is NOT fault-tolerant and might be unstable.
