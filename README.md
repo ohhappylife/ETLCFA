@@ -28,6 +28,6 @@ This will collect news from following sources:
 
 ## Important
 - <i> dataset_example </i> forder or a following google drive link that have example dataset (keyword = <i> 'tesla' </i>).
-  : <a href = https://drive.google.com/drive/folders/1m9t2SsQpaIfcqVU6PlVeNv5ePm9kZuXb?usp=sharing> Google Drive </a>
+  <a href = https://tinyurl.com/42f95xvb> Google Drive </a>
   / <a href = https://github.com/ohhappylife/ETLCFA/tree/master/dataset_example> Folder </a>
 - As of September 05, 2022, development is in progress; pipeline is NOT fault-tolerant and might be unstable.
