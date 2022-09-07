@@ -18,16 +18,22 @@ This will collect news from following sources:
 ## How to use
 - Please install required library (refer Requirements.txt)
 - Please fill API keys and AWS S3 information into the temp.py file
+- Please configure main.py before used (please refer to the comment on python file).; 
 - Run the main.py with through the command line.
   - e.g., python main.py {keyword} {newsCatcher if 1} {googleNews if 1} {Politifact if 1} {News API if 1}
 - Result (collected data, N-gram result) will be stored on S3 Bucket.
 
 ## Issues (To-be fixed)
-- Systems is not a fault-tolerant.
+- A pipeline is not a fault-tolerant, and the pipeline does not have function to validate the data.
 - As it utilizes default list of stopwords from NLTK, not all stopwords might be removed during the process.
+- Stores login credentials into codes can increase chance of data breach.
 
+## Limitations
+- Some sources provide limited information
+  - Politifact does not have articles.
+  
 ## Important
 - <i> dataset_example </i> forder or a following google drive link that have example dataset (keyword = <i> 'tesla' </i>).
-  : <a href = https://drive.google.com/drive/folders/1m9t2SsQpaIfcqVU6PlVeNv5ePm9kZuXb?usp=sharing> Google Drive </a>
+  : <a href = https://tinyurl.com/42f95xvb> Google Drive </a>
   / <a href = https://github.com/ohhappylife/ETLCFA/tree/master/dataset_example> Folder </a>
 - As of September 05, 2022, development is in progress; pipeline is NOT fault-tolerant and might be unstable.
