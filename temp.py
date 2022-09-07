@@ -7,7 +7,7 @@ def catcher():
 def news():
   return ''
 
-def NYTiems():
+def NYTimes():
   return ''
 
 def Gurdian():

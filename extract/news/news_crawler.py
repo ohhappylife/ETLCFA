@@ -32,15 +32,15 @@ def crawlData(keyword):
   df = pd.DataFrame(
     columns=['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
              'Language', 'Site_url', 'Main_img_url', 'Type', 'Label', 'hasImage'])
-  df['Author'] = df_temp['name']
-  df['Published Date'] = df_temp['publishedAt'].str[:10]
-  df['Title'] = df_temp['title']
-  df['Text'] = df_temp['content']
+  df['Author'] = df_temp['source']
+  df['Published Date'] = df_temp['pub_date'].astype(str).str.split(' ').str[0]
+  df['Title'] = df_temp['headline.main']
+  df['Text'] = df_temp['abstract']
   df['Title_without_stopwords'] = ''
   df['Text_without_stopwords'] = ''
   df['Language'] = 'English'
-  df['Site_url'] = df_temp['url']
-  df['Main_img_url'] = df_temp['urlToImage']
+  df['Site_url'] = df_temp['web_url']
+  df['Main_img_url'] = False
   df['Type'] = 'Unknown'
   df['Label'] = 'Unknown'
   df['hasImage'] = df_temp['urlToImage'].notnull()

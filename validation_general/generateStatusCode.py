@@ -18,7 +18,6 @@ def columnsChanged(source, df):
     code = 399
 
   bool = validation_general.checkColumns.checkColumnNames(df, name)
-
   if bool == True:
     return [name, code]
   else:
