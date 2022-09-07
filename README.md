@@ -1,8 +1,10 @@
 # ETLCFA
 
 ## Usage
-Collects news about a topic from different news media, and clean the text data by removing stopwords, creating N-Gram from the text.
-Users can set keyword for the articles for search (except politifact).
+1. Collects news article / title based on keywords from different news media.
+2. Clean the text data by removing stopwords, creating N-Gram from the text.
+3. Users can set keyword for the articles for search (except politifact).
+4. Users can leverage S3 to store and retrieve data.
 
 ## Source
 This will collect news from following sources:
