@@ -1,4 +1,4 @@
-from news import news_crawler, news_transform
+from extract.news import news_transform, news_crawler
 from transform_general import remove_stop_words, create_Ngram
 from datetime import date
 import information

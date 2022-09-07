@@ -1,11 +1,3 @@
-"""
-  remove_stop_words.py
-  Get dataframe, remove the stopwords from the columns
-    requirements : dataframe shall have columns with "Title_without_stopwords" and "Text_without_stopwords"
-    limitations: if the columns contain missing value, errors can be thrown.
-    input : dataframe
-    output : dataframe
-"""
 __author__ = "Shon"
 __version__ = "1.0.1"
 __email__ = "sshon2@alumni.jh.edu"
@@ -15,6 +7,12 @@ import nltk
 from nltk.corpus import stopwords
 
 def remove_stopwords(df):
+  """
+  Remove stop words from collected news article.
+  :param dataframe df: dataframe to be cleaned.
+  :return: dataframe with cleaned text.
+  :rtype: dataframe
+  """
   stop = set(stopwords.words('english'))
   df['Title_without_stopwords'] = df.apply(lambda row: nltk.word_tokenize(row['Title']), axis=1)
   df['Text_without_stopwords'] = df.apply(lambda row: nltk.word_tokenize(row['Text']), axis=1)

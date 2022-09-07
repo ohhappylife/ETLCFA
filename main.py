@@ -1,8 +1,8 @@
 import sys
-from newscatcher import news_catcher_main
-from googleNews import google_main
-from politifact import politifact_main
-from news import news_main
+from extract.newscatcher import news_catcher_main
+from extract.googleNews import google_main
+from extract.politifact import politifact_main
+from extract.news import news_main
 
 try:
   keyword = sys.argv[1] # To test at the Pycharm. Please change it into 0 after the testing.

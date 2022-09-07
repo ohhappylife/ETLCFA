@@ -13,8 +13,8 @@ __status__ = "Production"
 from datetime import date
 
 import information
-from politifact import politifact_transofrm, politifact_crawler
-from transform_general import save_csv_file, create_Ngram
+from extract.politifact import politifact_crawler, politifact_transofrm
+from transform_general import create_Ngram
 
 def crawlit():
   df = politifact_crawler.runit()

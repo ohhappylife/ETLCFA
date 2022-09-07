@@ -18,6 +18,12 @@ import unicodedata
 import nltk
 
 def basic_clean(text):
+  """
+  Clean text data for generating N-gram
+  :param str text: original text
+  :return: cleaned text for N-gram
+  :rtype: list
+  """
   wnl = nltk.stem.WordNetLemmatizer()
   text = (unicodedata.normalize('NFKD', text)
     .encode('ascii', 'ignore')
@@ -27,6 +33,12 @@ def basic_clean(text):
   return [wnl.lemmatize(word) for word in words]
 
 def Ngram(df, name):
+  """
+  Create N-gram based on input and store result into given S3 path.
+  :param dataframe df: dataframe to be cleaned.
+  :return: none
+  :rtype: none
+  """
   title = basic_clean(''.join(str(df['Title_without_stopwords'].tolist())))
   text = basic_clean(''.join(str(df['Text_without_stopwords'].tolist())))
 

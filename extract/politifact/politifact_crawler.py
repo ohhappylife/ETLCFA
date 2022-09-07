@@ -40,7 +40,6 @@ def runit():
         URL = 'https://www.politifact.com/factchecks/list/?page={}&speaker={}'.format(page_num, source)
 
         webpage = requests.get(URL)  #Make a request to the website
-        #time.sleep(3)
         soup = BeautifulSoup(webpage.text, "html.parser") #Parse the text from the website
         #Get the tags and it's class
         statement_footer =  soup.find_all('footer',attrs={'class':'m-statement__footer'})  #Get the tag and it's class
@@ -83,9 +82,6 @@ def runit():
     n=2
     for i in range(1, n):
         scrape_website(i, source='')
-
-
-
 
     #Create a new dataFrame
     df = pd.DataFrame(columns = ['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
