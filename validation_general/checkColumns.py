@@ -1,5 +1,3 @@
-from logger import logger
-
 def checkColumnNames(df, source):
   if source == 1:  # Google News
     ori = ['position', 'link', 'title', 'source', 'date', 'snippet', 'thumbnail']
@@ -10,8 +8,7 @@ def checkColumnNames(df, source):
     ori = ['title', 'author', 'published_date', 'published_date_precision', 'link', 'clean_url', 'excerpt', 'summary',
            'rights', 'rank', 'topic', 'country', 'language', 'authors', 'media', 'is_opinion', 'twitter_account',
            '_score', '_id', 'status', 'total_hits', 'page', 'total_pages', 'page_size', 'user_input']
-
-  elif source == 4: # NYTimes
+  elif source == 5: # NYTimes
     ori = ['abstract', 'web_url', 'snippet', 'lead_paragraph', 'print_section', 'print_page', 'source', 'multimedia',
            'keywords', 'pub_date', 'document_type', 'news_desk', 'section_name', 'subsection_name', 'type_of_material',
            '_id', 'word_count', 'uri', 'headline.main', 'headline.kicker', 'headline.content_kicker',

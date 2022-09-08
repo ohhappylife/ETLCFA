@@ -14,6 +14,14 @@ __status__ = "Production"
 import os
 
 def save_file(df, folder_name, file_name):
+  """
+  Receive dataframe and store it as csv file into cwd.
+  :param dataframe df : dataframe to be saved
+         str folder_name : folder name to be stored
+         str file_name: file name to be saved
+  :return: None
+  :rtype: None
+  """
   cwd = os.getcwd()
   filename = file_name + ".csv"
   fileloc = os.path.join(cwd, folder_name)

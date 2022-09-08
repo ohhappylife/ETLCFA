@@ -1,5 +1,14 @@
+"""
+  tokenize_words.py
+  get sentence and return tokenized sentences
+"""
+__author__ = "Shon"
+__version__ = "1.0.1"
+__email__ = "sshon2@alumni.jh.edu"
+__status__ = "Production"
+
 from nltk.tokenize import word_tokenize
-from logger import logger
+
 def tokenize_words(df):
   """
   Tokenize news articles for analysis.

@@ -14,6 +14,12 @@ import os
 import pandas as pd
 
 def load_file(file_name):
+  """
+  Load csv file and store it as dataframe
+  :param str file_name: file name to be imported
+  :return: imported file
+  :rtype: dataframe
+  """
   cwd = os.getcwd()
   fileloc = "files"
   fileloc = os.path.join(cwd, fileloc)

@@ -1,10 +1,6 @@
 """
   create_Ngram.py
   Generating N-gram from sentences
-    requirements : dataframe shall have columns of Title_without_stopwords columns and Text_without_stopwords columns
-    input : dataframe Title_without_stopwords columns and Text_without_stopwords columns
-    output : unigram, bigram, trigram of input
-  To change the N-gram (e.g., to quadgram), chane the range in for-loop.
 """
 __author__ = "Shon"
 __version__ = "1.0.1"
@@ -42,7 +38,7 @@ def Ngram(df, name):
   title = basic_clean(''.join(str(df['Title_without_stopwords'].tolist())))
   text = basic_clean(''.join(str(df['Text_without_stopwords'].tolist())))
 
-  for i in range(1,4):
+  for i in range(1,4): # file name = {source_name}_title_n.csv
     ftitle = name + "_title_" + '_' + str(i) + '.csv'
     fvalue = name + "_text_" + '_' + str(i) + '.csv'
 

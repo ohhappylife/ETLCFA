@@ -6,10 +6,13 @@ from extract.news import news_main
 from extract.NYTimes import NYTimes_main
 from logger import logger
 
+logger.debug("start the process")
+
 try:
   keyword = sys.argv[1]  # To test at the Pycharm. Please change it into 0 after the testing.
+  logger.debug("Received Keyword : " + str(keyword))
 except IndexError:
-  logger.critical("No keyword is given")
+  logger.critical("err 001: No keyword is given")
   exit(-1)
 
 try:
@@ -42,3 +45,6 @@ except IndexError:
   politifact_main.crawlit()
   news_main.news(keyword)
   NYTimes_main.crawlit(keyword)
+
+logger.debug("end the process")
+

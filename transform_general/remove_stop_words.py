@@ -5,7 +5,7 @@ __status__ = "Development"
 
 import nltk
 from nltk.corpus import stopwords
-from logger import logger
+
 def remove_stopwords(df):
   """
   Remove stop words from collected news article.
