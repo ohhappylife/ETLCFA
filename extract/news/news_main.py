@@ -6,7 +6,7 @@ import information
 def news(keyword):
 
   df = news_crawler.crawlData(keyword)
-  df = news_transform.remove_stopwords(df)
+  df = news_transform.cleanit(df)
   df = remove_stop_words.remove_stopwords(df)
 
   today = date.today()

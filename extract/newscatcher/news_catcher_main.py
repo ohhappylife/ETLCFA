@@ -3,13 +3,12 @@ from datetime import date
 import information
 import transform_general.remove_stop_words
 from transform_general import create_Ngram
-from extract.newscatcher import news_transform, news_catcher_crawler
-
+from extract.newscatcher import news_catcher_crawler, news_transform
 
 def googleNews(keyword):
 
   df = news_catcher_crawler.newsCatcher(keyword)
-  df = news_transform.remove_stopwords(df)
+  df = news_transform.cleanit(df)
   df = transform_general.remove_stop_words.remove_stopwords(df)
 
   today = date.today()

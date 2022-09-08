@@ -16,13 +16,15 @@ This will collect news from following sources:
     - https://newscatcherapi.com/
   - Politifact
     - https://www.politifact.com/
+  - NYTimes
+    - https://www.nytimes.com/
 
 ## How to use
 - Please install required library (refer Requirements.txt)
 - Please fill API keys and AWS S3 information into the temp.py file
 - Please configure main.py before used (please refer to the comment on python file).; 
 - Run the main.py with through the command line.
-  - e.g., python main.py {keyword} {newsCatcher if 1} {googleNews if 1} {Politifact if 1} {News API if 1}
+  - e.g., python main.py {keyword} {newsCatcher if 1} {googleNews if 1} {Politifact if 1} {News API if 1} (NYTimes if 1)
 - Result (collected data, N-gram result) will be stored on S3 Bucket.
 
 ## Issues (To-be fixed)
