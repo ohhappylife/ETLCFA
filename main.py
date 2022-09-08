@@ -6,16 +6,16 @@ from extract.news import news_main
 from extract.NYTimes import NYTimes_main
 
 try:
-  keyword = sys.argv[1] # To test at the Pycharm. Please change it into 0 after the testing.
+  keyword = sys.argv[1]  # To test at the Pycharm. Please change it into 0 after the testing.
 except IndexError:
   exit(-1)
 
 try:
-  catcher = sys.argv[2] # 1
-  google = sys.argv[3] # 2
-  politifact = sys.argv[4] #3
-  news = sys.argv[5] #4
-  NYTtimes = sys.argv[6] #5
+  catcher = sys.argv[2]  # 1
+  google = sys.argv[3]  # 2
+  politifact = sys.argv[4]  # 3
+  news = sys.argv[5]  # 4
+  NYTtimes = sys.argv[6]  # 5
 
   if catcher != 0: news_catcher_main.googleNews(keyword)
   if google != 0: google_main.googleNews(keyword)
