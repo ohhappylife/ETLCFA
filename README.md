@@ -37,9 +37,15 @@ This will collect news from following sources:
 ## Limitations
 - Some sources provide limited information
   - Politifact does not have articles.
-  
+
+## Requirements
+- Users need to have valid API keys of the sources.
+- Users need to have AWS Account, and set S3 storage and s3 bucket for storing dataset.
+- Users need to have writing privilege on CWD to store log data.
+
 ## Important
-- <i> dataset_example </i> forder or a following google drive link that have example dataset (keyword = <i> 'tesla' </i>).
+- <i> dataset_example </i> folder or a following google drive link that have example dataset (keyword = <i> 'tesla' </i>).
   : <a href = https://tinyurl.com/42f95xvb> Google Drive </a>
   / <a href = https://github.com/ohhappylife/ETLCFA/tree/master/dataset_example> Github Folder </a>
 - As of September 05, 2022, development is in progress; pipeline is NOT fault-tolerant and might be unstable.
+- Logs are currently stored into cwd, not S3 to minimize the cost.
