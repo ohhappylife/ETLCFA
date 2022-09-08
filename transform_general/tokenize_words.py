@@ -1,5 +1,5 @@
 from nltk.tokenize import word_tokenize
-
+from logger import logger
 def tokenize_words(df):
   """
   Tokenize news articles for analysis.

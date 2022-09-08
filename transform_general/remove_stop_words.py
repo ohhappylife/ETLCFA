@@ -5,7 +5,7 @@ __status__ = "Development"
 
 import nltk
 from nltk.corpus import stopwords
-
+from logger import logger
 def remove_stopwords(df):
   """
   Remove stop words from collected news article.
@@ -24,4 +24,5 @@ def remove_stopwords(df):
 
   df['Title_without_stopwords'] = [' '.join(map(str, l)) for l in df['Title_without_stopwords']]
   df['Text_without_stopwords'] = [' '.join(map(str, l)) for l in df['Text_without_stopwords']]
+
   return df

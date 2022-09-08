@@ -1,6 +1,5 @@
-from newsapi import NewsApiClient
 import information
-from datetime import date, timedelta
+from datetime import date
 import pandas as pd
 
 def cleanit(df_temp):

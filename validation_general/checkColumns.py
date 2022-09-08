@@ -1,3 +1,5 @@
+from logger import logger
+
 def checkColumnNames(df, source):
   if source == 1:  # Google News
     ori = ['position', 'link', 'title', 'source', 'date', 'snippet', 'thumbnail']

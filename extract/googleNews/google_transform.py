@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 from transform_general import remove_stop_words
 from datetime import date
-from serpapi import GoogleSearch
 import pandas as pd
 import information
 

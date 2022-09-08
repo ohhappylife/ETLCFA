@@ -29,8 +29,8 @@ This will collect news from following sources:
 
 ## Issues (To-be fixed)
 - The pipeline is not a fault-tolerant
-- The pipeline does not have function to validate the data.
-- The pipeline does not store logs.
+- The pipeline does not have function to validate the data (Partially Fixed as of Sept 8 2022).
+- The pipeline does not store logs (Partially Fixed  as of Sept 8 2022 : ONLY critical issues and errors are stored into log files).
 - As it utilizes default list of stopwords from NLTK, not all stopwords might be removed during the process.
 - Stores login credentials into codes can increase chance of data breach.
 
