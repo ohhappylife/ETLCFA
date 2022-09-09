@@ -3,6 +3,9 @@ from pynytimes import NYTAPI
 import information
 import pandas as pd
 
+from validation_general import generateStatusCode
+
+
 def runit(keyword, n = 50):
   nyt = NYTAPI(information.NYTimes(), parse_dates=True)
 
@@ -22,6 +25,8 @@ def runit(keyword, n = 50):
   )
 
   df_temp = pd.json_normalize(articles)
+  generateStatusCode.dataNotCollected(5, df_temp)
+  generateStatusCode.columnsChanged(5, df_temp)
   fname = "RAW_NYTimes" + str(today) + '.csv'
   information.savetoBucket(df_temp, 'newsdata', fname)
 

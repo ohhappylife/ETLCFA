@@ -27,6 +27,7 @@ def cleanIT(df_temp):
   today = date.today()
   fname = "uncleared_google_" + str(today) + '.csv'
   information.savetoBucket(df, 'newsdata', fname)
+  return df
 
 def hour(hour):
     mod_date = now + timedelta(hours = -hour)

@@ -1,4 +1,4 @@
-import validation_general
+from validation_general import checkSize, checkColumns
 from logger import logger
 
 def columnsChanged(source, df):
@@ -21,7 +21,7 @@ def columnsChanged(source, df):
     name = "err"
     code = 399
 
-  bool = validation_general.checkColumns.checkColumnNames(df, source)
+  bool = checkColumns.checkColumnNames(df, source)
   if bool == True:
     logger.critical(str(code) + ": Columns mismatched " + name)
     return [name, code]
@@ -49,10 +49,10 @@ def dataNotCollected(source, df):
     name = "err"
     code = 499
 
-  size = validation_general.checkSize.checkrow(df)
+  size = checkSize.checkrow(df)
   if size != 0:
-    logger.debug("Size OK : " + source)
+    logger.debug("Size OK : " + name)
     pass
   else:
-    logger.critical(str(code) + ": Data is not collected : " + source)
-    return (str(code) + ": Data is not collected : " + source)
+    logger.critical(str(code) + ": Data is not collected : " + name)
+    return (str(code) + ": Data is not collected : " + name)

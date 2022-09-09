@@ -3,6 +3,9 @@ import information
 from datetime import date, timedelta
 import pandas as pd
 
+from validation_general import generateStatusCode
+
+
 def crawlData(keyword):
   newsapi = NewsApiClient(api_key=information.news())
 
@@ -25,6 +28,9 @@ def crawlData(keyword):
 
   normalized = pd.json_normalize(df_temp['source'])
   df_temp = df_temp.join(normalized).drop(columns=['source'])
+
+  generateStatusCode.dataNotCollected(2, df_temp)
+  generateStatusCode.columnsChanged(2, df_temp)
 
   fname = "raw_news" + str(today) + '.csv'
   information.savetoBucket(df_temp, 'newsdata', fname)

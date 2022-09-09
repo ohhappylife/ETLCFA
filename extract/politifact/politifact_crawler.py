@@ -23,6 +23,8 @@ import information
 from transform_general import save_csv_file
 import re
 
+from validation_general import generateStatusCode
+
 today = date.today()
 
 authors = []
@@ -104,6 +106,7 @@ def runit():
   df['hasImage'] = False
 
   # Show the data set
+  generateStatusCode.dataNotCollected(4, df)
 
   fname = "raw_politifact" + str(today) + '.csv'
   information.savetoBucket(df, 'newsdata', fname)

@@ -2,6 +2,7 @@ from datetime import date
 from serpapi import GoogleSearch
 import pandas as pd
 import information
+from validation_general import generateStatusCode
 
 def crawlData(keyword):
 
@@ -20,6 +21,8 @@ def crawlData(keyword):
     result = results["news_results"] # get news information only.
 
     df_temp = pd.DataFrame(result)
+    generateStatusCode.dataNotCollected(1, df_temp)
+    generateStatusCode.columnsChanged(1, df_temp)
 
     fname = "raw_google" + str(today) + '.csv'
     information.savetoBucket(df_temp, 'newsdata', fname)
