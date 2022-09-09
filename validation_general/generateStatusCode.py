@@ -31,7 +31,6 @@ def columnsChanged(source, df):
   else:
     logger.debug("Columns Unchanged : " + name)
 
-
 def dataNotCollected(source, df):
   if source == 1:
     name = "Google"

@@ -10,7 +10,6 @@ def crawlit(keyword):
   else:
     df = NYTimes_transform.cleanit(df)
     df = remove_stop_words.remove_stopwords(df)
-
     today = date.today()
     fname = "cleaned_NYTimes_" + str(today) + '.csv'
 
