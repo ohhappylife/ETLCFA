@@ -89,7 +89,7 @@ def runit():
 
   c = generateStatusCode.dataNotCollected(1, url)
 
-  if c != 1:
+  if c == 1:
     # Create a new dataFrame
     df = pd.DataFrame(columns=['Author', 'Published Date', 'Title', 'Text',
                                'Title_without_stopwords', 'Text_without_stopwords',

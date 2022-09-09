@@ -23,7 +23,7 @@ def crawlData(keyword):
     df_temp = pd.DataFrame(result)
 
     c = generateStatusCode.dataNotCollected(1, df_temp)
-    if c != 1:
+    if c == 1:
         generateStatusCode.columnsChanged(1, df_temp)
         fname = "raw_google" + str(today) + '.csv'
         information.savetoBucket(df_temp, 'newsdata', fname)

@@ -27,7 +27,7 @@ def crawlData(keyword):
              .reset_index(drop=True))
   c = generateStatusCode.dataNotCollected(1, df_temp)
 
-  if c != 1:
+  if c == 1:
     normalized = pd.json_normalize(df_temp['source'])
     df_temp = df_temp.join(normalized).drop(columns=['source'])
 

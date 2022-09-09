@@ -25,7 +25,7 @@ def runit(keyword, n = 50):
   )
   c = generateStatusCode.dataNotCollected(1, articles)
 
-  if c != 1:
+  if c == 1:
     df_temp = pd.json_normalize(articles)
     generateStatusCode.dataNotCollected(5, df_temp)
     generateStatusCode.columnsChanged(5, df_temp)
