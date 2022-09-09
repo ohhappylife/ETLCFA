@@ -2,9 +2,7 @@ from datetime import date, timedelta, datetime
 from pynytimes import NYTAPI
 import information
 import pandas as pd
-
 from validation_general import generateStatusCode
-
 
 def runit(keyword, n = 50):
   nyt = NYTAPI(information.NYTimes(), parse_dates=True)
@@ -33,4 +31,5 @@ def runit(keyword, n = 50):
     information.savetoBucket(df_temp, 'newsdata', fname)
 
     return df_temp
-  return articles
+  else:
+    return articles
