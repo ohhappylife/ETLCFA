@@ -25,14 +25,18 @@ def crawlData(keyword):
              .reset_index(level=1, drop=True)
              .join(all_articles)
              .reset_index(drop=True))
+  c = generateStatusCode.dataNotCollected(1, df_temp)
 
-  normalized = pd.json_normalize(df_temp['source'])
-  df_temp = df_temp.join(normalized).drop(columns=['source'])
+  if c != 1:
+    normalized = pd.json_normalize(df_temp['source'])
+    df_temp = df_temp.join(normalized).drop(columns=['source'])
 
-  generateStatusCode.dataNotCollected(2, df_temp)
-  generateStatusCode.columnsChanged(2, df_temp)
+    generateStatusCode.dataNotCollected(2, df_temp)
+    generateStatusCode.columnsChanged(2, df_temp)
 
-  fname = "raw_news" + str(today) + '.csv'
-  information.savetoBucket(df_temp, 'newsdata', fname)
+    fname = "raw_news" + str(today) + '.csv'
+    information.savetoBucket(df_temp, 'newsdata', fname)
+    return df_temp
 
-  return df_temp
+  else:
+    return df_temp

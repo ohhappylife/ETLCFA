@@ -87,31 +87,36 @@ def runit():
   for i in range(1, n):
     scrape_website(i, source='')
 
-  # Create a new dataFrame
-  df = pd.DataFrame(columns=['Author', 'Published Date', 'Title', 'Text',
-                             'Title_without_stopwords', 'Text_without_stopwords',
-                             'Language', 'Site_url', 'Main_img_url', 'Type',
-                             'Label', 'hasImage'])
-  df['Author'] = sources
-  df['Published Date'] = dates
-  df['Title'] = statements
-  df['Text'] = 'Unavailable'
-  df['Title_without_stopwords'] = ''
-  df['Text_without_stopwords'] = ''
-  df['Language'] = 'English'
-  df['Site_url'] = url
-  df['Main_img_url'] = False
-  df['Type'] = 'Unknown'
-  df['Label'] = targets
-  df['hasImage'] = False
+  c = generateStatusCode.dataNotCollected(1, url)
 
-  # Show the data set
-  generateStatusCode.dataNotCollected(4, df)
+  if c != 1:
+    # Create a new dataFrame
+    df = pd.DataFrame(columns=['Author', 'Published Date', 'Title', 'Text',
+                               'Title_without_stopwords', 'Text_without_stopwords',
+                               'Language', 'Site_url', 'Main_img_url', 'Type',
+                               'Label', 'hasImage'])
+    df['Author'] = sources
+    df['Published Date'] = dates
+    df['Title'] = statements
+    df['Text'] = 'Unavailable'
+    df['Title_without_stopwords'] = ''
+    df['Text_without_stopwords'] = ''
+    df['Language'] = 'English'
+    df['Site_url'] = url
+    df['Main_img_url'] = False
+    df['Type'] = 'Unknown'
+    df['Label'] = targets
+    df['hasImage'] = False
 
-  fname = "raw_politifact" + str(today) + '.csv'
-  information.savetoBucket(df, 'newsdata', fname)
+    # Show the data set
+    generateStatusCode.dataNotCollected(4, df)
 
-  fname = "uncleared_politifact_" + str(today) + '.csv'
-  information.savetoBucket(df, 'newsdata', fname)
+    fname = "raw_politifact" + str(today) + '.csv'
+    information.savetoBucket(df, 'newsdata', fname)
 
-  return df
+    fname = "uncleared_politifact_" + str(today) + '.csv'
+    information.savetoBucket(df, 'newsdata', fname)
+
+    return df
+  else:
+    return url

@@ -6,11 +6,14 @@ import information
 def news(keyword):
 
   df = news_crawler.crawlData(keyword)
-  df = news_transform.cleanit(df)
-  df = remove_stop_words.remove_stopwords(df)
+  if len(df)==0:
+    pass
+  else:
+    df = news_transform.cleanit(df)
+    df = remove_stop_words.remove_stopwords(df)
 
-  today = date.today()
-  fname = "cleaned_news" + str(today) + '.csv'
+    today = date.today()
+    fname = "cleaned_news" + str(today) + '.csv'
 
-  information.savetoBucket(df, 'newsdata', fname)
-  create_Ngram.Ngram(df, 'news' + str(today))
+    information.savetoBucket(df, 'newsdata', fname)
+    create_Ngram.Ngram(df, 'news' + str(today))

@@ -18,13 +18,14 @@ from transform_general import create_Ngram
 
 def crawlit():
   df = politifact_crawler.runit()
-  df = politifact_transofrm.transofmr_politifact(df)
+  if len(df) == 0:
+    pass
+  else:
+    df = politifact_transofrm.transofmr_politifact(df)
 
-  today = date.today()
-  fname = "cleaned_politifact_" + str(today) + '.csv'
+    today = date.today()
+    fname = "cleaned_politifact_" + str(today) + '.csv'
 
-  information.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket(df, 'newsdata', fname)
 
-  create_Ngram.Ngram(df, 'politifact_Ngram' + str(today))
-
-crawlit()
+    create_Ngram.Ngram(df, 'politifact_Ngram' + str(today))

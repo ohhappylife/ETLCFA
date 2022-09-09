@@ -23,11 +23,14 @@ def runit(keyword, n = 50):
       "sort": "oldest",
     }
   )
+  c = generateStatusCode.dataNotCollected(1, articles)
 
-  df_temp = pd.json_normalize(articles)
-  generateStatusCode.dataNotCollected(5, df_temp)
-  generateStatusCode.columnsChanged(5, df_temp)
-  fname = "RAW_NYTimes" + str(today) + '.csv'
-  information.savetoBucket(df_temp, 'newsdata', fname)
+  if c != 1:
+    df_temp = pd.json_normalize(articles)
+    generateStatusCode.dataNotCollected(5, df_temp)
+    generateStatusCode.columnsChanged(5, df_temp)
+    fname = "RAW_NYTimes" + str(today) + '.csv'
+    information.savetoBucket(df_temp, 'newsdata', fname)
 
-  return df_temp
+    return df_temp
+  return articles

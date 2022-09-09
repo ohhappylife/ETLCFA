@@ -27,7 +27,7 @@ def columnsChanged(source, df):
     return [name, code]
   else:
     logger.debug("Columns Unchanged : " + name)
-    pass
+    1
 
 def dataNotCollected(source, df):
   if source == 1:
@@ -52,7 +52,8 @@ def dataNotCollected(source, df):
   size = checkSize.checkrow(df)
   if size != 0:
     logger.debug("Size OK : " + name)
+    return 1
     pass
   else:
     logger.critical(str(code) + ": Data is not collected : " + name)
-    return (str(code) + ": Data is not collected : " + name)
+    return 0
