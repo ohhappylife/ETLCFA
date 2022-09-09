@@ -17,6 +17,9 @@ def columnsChanged(source, df):
   elif source == 5:
     name = "NYTimes"
     code = 305
+  elif source == 6:
+    name = "Bing"
+    code = 305
   else:
     name = "err"
     code = 399
@@ -27,7 +30,7 @@ def columnsChanged(source, df):
     return [name, code]
   else:
     logger.debug("Columns Unchanged : " + name)
-    1
+
 
 def dataNotCollected(source, df):
   if source == 1:
@@ -45,6 +48,9 @@ def dataNotCollected(source, df):
   elif source == 5:
     name = "NYTimes"
     code = 405
+  elif source == 6:
+    name = "Bing"
+    code = 406
   else:
     name = "err"
     code = 499

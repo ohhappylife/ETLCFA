@@ -16,3 +16,6 @@ def crawlit(keyword):
 
     information.savetoBucket(df, 'newsdata', fname)
     create_Ngram.Ngram(df, 'NYTimes_Ngram' + str(today))
+    df['camefrom'] = 'NYTimes'
+
+    return df

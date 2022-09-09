@@ -17,3 +17,6 @@ def news(keyword):
 
     information.savetoBucket(df, 'newsdata', fname)
     create_Ngram.Ngram(df, 'news' + str(today))
+    df['camefrom'] = 'newsAPI'
+
+    return df

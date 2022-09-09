@@ -19,3 +19,6 @@ def googleNews(keyword):
 
     information.savetoBucket(df, 'newsdata', fname)
     create_Ngram.Ngram(df, 'news_catcher' + str(today))
+    df['camefrom'] = 'newsCatcher'
+
+    return df

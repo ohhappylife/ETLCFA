@@ -5,6 +5,10 @@ from extract.politifact import politifact_main
 from extract.news import news_main
 from extract.NYTimes import NYTimes_main
 from logger import logger
+from extract.bingNews import bing_main
+import pandas as pd
+from datetime import date
+import information
 
 logger.debug("start the process")
 
@@ -21,30 +25,42 @@ try:
   politifact = sys.argv[4]  # 3
   news = sys.argv[5]  # 4
   NYTtimes = sys.argv[6]  # 5
+  Bing = sys.argv[7] #6
 
   if catcher != 0:
-    news_catcher_main.googleNews(keyword)
+    dfnc  =news_catcher_main.googleNews(keyword)
     logger.debug("Crawl News Catcher")
   if google != 0:
-    google_main.googleNews(keyword)
+    dfg = google_main.googleNews(keyword)
     logger.debug("Crawl Google News")
   if politifact != 0:
-    politifact_main.crawlit()
+    dfp = politifact_main.crawlit()
     logger.debug("Crawl Poltifiact")
   if news != 0:
-    news_main.news(keyword)
+    dfn = news_main.news(keyword)
     logger.debug("Crawl News API")
   if NYTtimes != 0:
-    NYTimes_main.crawlit(keyword)
+    dfny = NYTimes_main.crawlit(keyword)
     logger.debug("Crawl NYTimes")
+  if Bing != 0:
+    dfb = bing_main.bingNews(keyword)
+    logger.debug('Crawl Bing news')
+
 
 except IndexError:
   logger.debug("Crawl from ALL sources")
-  news_catcher_main.googleNews(keyword)
-  google_main.googleNews(keyword)
-  politifact_main.crawlit()
-  news_main.news(keyword)
-  NYTimes_main.crawlit(keyword)
+  dfp = politifact_main.crawlit()
+  dfnc = news_catcher_main.googleNews(keyword)
+  dfg = google_main.googleNews(keyword)
+  dfn = news_main.news(keyword)
+  dfny = NYTimes_main.crawlit(keyword)
+  dfb = bing_main.bingNews(keyword)
+today = date.today()
+df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb])
+df = df.reset_index(drop = True)
+
+fname = "merged_" + str(today) + '.csv'
+information.savetoBucket(df, 'newsdata', fname)
 
 logger.debug("end the process")
 

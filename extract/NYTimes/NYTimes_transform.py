@@ -18,7 +18,7 @@ def cleanit(df_temp):
   df['Main_img_url'] = ''
   df['Type'] = 'Unknown'
   df['Label'] = 'Unknown'
-  df['hasImage'] = 'Unknown'
+  df['hasImage'] = False
 
   # Show the data set
   today = date.today()

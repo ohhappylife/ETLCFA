@@ -14,6 +14,7 @@ __email__ = "sshon2@alumni.jh.edu"
 __status__ = "Production"
 
 from datetime import date
+from time import strptime
 
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -57,11 +58,18 @@ def runit():
       first_name = name_and_date[1]
       last_name = name_and_date[2]
       full_name = first_name + ' ' + last_name
-      month = name_and_date[4]
-      day = name_and_date[5]
-      year = name_and_date[6]
-      date = month + ' ' + day + ' ' + year
-      dates.append(date)
+
+      try:
+        month = name_and_date[4].replace("•", "")
+        day = name_and_date[5].replace("•", "")
+        year = name_and_date[6].replace("•", "")
+        month = strptime(month,'%B').tm_mon
+      except ValueError:
+        month = name_and_date[4].replace("•", "")
+        day = name_and_date[5].replace("•", "")
+        year = name_and_date[6].replace("•", "")
+      date = str(str(year) + "-" + str(month) + "-" + str(day))
+      dates.append(str(date))
       authors.append(full_name)
     # Loop through the div m-statement__quote to get the link
     for i in statement_quote:
@@ -96,14 +104,14 @@ def runit():
                                'Language', 'Site_url', 'Main_img_url', 'Type',
                                'Label', 'hasImage'])
     df['Author'] = sources
-    df['Published Date'] = dates
+    df['Published Date'] = dates.str.replace(',', '')
     df['Title'] = statements
     df['Text'] = 'Unavailable'
     df['Title_without_stopwords'] = ''
     df['Text_without_stopwords'] = ''
     df['Language'] = 'English'
     df['Site_url'] = url
-    df['Main_img_url'] = False
+    df['Main_img_url'] = ''
     df['Type'] = 'Unknown'
     df['Label'] = targets
     df['hasImage'] = False
