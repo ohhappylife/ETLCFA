@@ -14,6 +14,13 @@ def checkColumnNames(df, source):
            '_id', 'word_count', 'uri', 'headline.main', 'headline.kicker', 'headline.content_kicker',
            'headline.print_headline', 'headline.name', 'headline.seo', 'headline.sub', 'byline.original',
            'byline.person', 'byline.organization', 'subsection_name']
+  elif source == 6:
+    ori = ['name', 'url', 'description', 'about', 'mentions', 'provider',
+       'datePublished', 'image.thumbnail.contentUrl', 'image.thumbnail.width',
+       'image.thumbnail.height', 'category', 'video.name',
+       'video.motionThumbnailUrl', 'video.thumbnail.width',
+       'video.thumbnail.height', 'video.thumbnailUrl', 'video.embedHtml',
+       'video.allowHttpsEmbed']
   else:
     ori = ["___"]
 
