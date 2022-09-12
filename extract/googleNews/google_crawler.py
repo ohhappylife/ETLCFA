@@ -5,7 +5,12 @@ import information
 from validation_general import generateStatusCode
 
 def crawlData(keyword):
-
+    """
+    Collect news articels from Google News based on keyword.
+    :param str keyword: keyword to be searched from Google News.
+    :return: imported file
+    :rtype: dataframe
+    """
     today = date.today()
 
     params = {

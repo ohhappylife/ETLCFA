@@ -1,10 +1,18 @@
 from datetime import datetime, timedelta
 import pandas as pd
 from datetime import date
-now = datetime.now()
 import information
 
+
+now = datetime.now()
+
 def cleanIT(df_temp):
+  """
+  Clean news articles that are collected from bing_Crawler.py
+  :param dataframe df_temp: collected news articles and it's information.
+  :return: cleaned news articles
+  :rtype: dataframe
+  """
   df = pd.DataFrame(
     columns=['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
              'Language', 'Site_url', 'Main_img_url', 'Type', 'Label', 'hasImage'])

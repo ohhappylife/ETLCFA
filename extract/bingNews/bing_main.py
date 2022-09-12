@@ -5,9 +5,9 @@ import information
 
 def bingNews(keyword):
   df = bing_Crawler.crawlIt(keyword)
-  if len(df)==0:
+  if len(df)==0: # no article is collected
     pass
-  else:
+  else: # article is collected
     df = bing_Transform.cleanIT(df)
     df = remove_stop_words.remove_stopwords(df)
 

@@ -7,6 +7,7 @@ from validation_general import generateStatusCode
 
 
 def crawlData(keyword):
+
   newsapi = NewsApiClient(api_key=information.news())
 
   yesterday = date.today() - timedelta(days=2)

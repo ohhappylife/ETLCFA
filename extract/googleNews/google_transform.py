@@ -7,6 +7,12 @@ import information
 now = datetime.now()
 
 def cleanIT(df_temp):
+  """
+  Clean collected news articles from google_crawler.py
+  :param dataframe df_temp: collected news article and it's information from google_crawler.py
+  :return: clean news article and its information
+  :rtype: dataframe
+  """
   df = pd.DataFrame(
     columns=['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
              'Language', 'Site_url', 'Main_img_url', 'Type', 'Label', 'hasImage'])

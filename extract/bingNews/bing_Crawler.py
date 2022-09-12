@@ -8,6 +8,12 @@ from validation_general import generateStatusCode
 today = date.today()
 
 def crawlIt(keyword):
+  """
+  Crawl news articles from Bing News based on keyword.
+  :param str keyword: keyword to be searched.
+  :return: crawled news articles and its information
+  :rtype: dataframe
+  """
   subscription_key = information.Bing()
   search_url = "https://api.bing.microsoft.com/v7.0/news/search"
 
