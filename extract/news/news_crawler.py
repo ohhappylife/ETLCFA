@@ -7,7 +7,12 @@ from validation_general import generateStatusCode
 
 
 def crawlData(keyword):
-
+  """
+  Crawl Nes data from News API based on keyword
+  :param string keyword: Keyword to be searched
+  :return: collected news articles and its information.
+  :rtype: dataframe
+  """
   newsapi = NewsApiClient(api_key=information.news())
 
   yesterday = date.today() - timedelta(days=2)
