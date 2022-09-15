@@ -4,7 +4,7 @@ import information
 import pandas as pd
 from validation_general import generateStatusCode
 
-def runit(keyword, n = 50):
+def runit(keyword, n = 1000):
   nyt = NYTAPI(information.NYTimes(), parse_dates=True)
 
   yesterday = date.today() - timedelta(days=2)

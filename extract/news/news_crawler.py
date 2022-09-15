@@ -2,7 +2,6 @@ from newsapi import NewsApiClient
 import information
 from datetime import date, timedelta
 import pandas as pd
-
 from validation_general import generateStatusCode
 
 

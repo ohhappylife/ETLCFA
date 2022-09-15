@@ -2,11 +2,15 @@ from newscatcherapi import NewsCatcherApiClient
 import information
 from datetime import date
 import pandas as pd
-
 from validation_general import generateStatusCode
 
-
 def newsCatcher(keyword):
+  """
+  Collect news articles based on keyword from News Catcher API.
+  :param str keyword: keyword to be searched.
+  :return: crawled news articles and its information
+  :rtype: dataframe
+  """
   today = date.today()
 
   newscatcherapi = NewsCatcherApiClient(information.catcher())

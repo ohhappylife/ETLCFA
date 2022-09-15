@@ -4,7 +4,7 @@ from extract.NYTimes import NYTimesCrawler, NYTimes_transform
 from transform_general import create_Ngram, remove_stop_words
 
 def crawlit(keyword):
-  df = NYTimesCrawler.runit(keyword)
+  df = NYTimesCrawler.runit(keyword, 1000)
   if len(df) == 0:
     pass
   else:
