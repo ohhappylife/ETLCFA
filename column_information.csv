@@ -1,0 +1,92 @@
+﻿Source,name,News Title
+Bing,url,URL of the News
+Bing,description,Summary of News Article
+Bing,about,API Link
+Bing,mentions,Keyword of News
+Bing,provider,Source
+Bing,datePublished,Date of Published
+Bing,category,News Category
+Bing,image.thumbnail.contentUrl,Thumbnail URL
+Bing,image.thumbnail.width,Thumbnail widtch
+Bing,image.thumbnail.height,Thumbnail Height
+Bing,video.name,Name of Video (if an article has a video)
+Bing,video.motionThumbnailUrl,Video Link
+Bing,video.thumbnail.width,Video widtch
+Bing,video.thumbnail.height,Video Height
+Bing,video.thumbnailUrl,Video Thumbnail URL
+Bing,video.embedHtml,Embeded video URL
+Bing,video.allowHttpsEmbed,Is there embeded Video
+Google,Position,Index
+Google,link,News URL
+Google,title,News Title
+Google,source,Source
+Google,date,Date (hours / days agp)
+Google,snippet,Summary of News Article
+Google,thumbnail,Thumbnail URL
+News Catcher,title,title
+News Catcher,author,name of the autor
+News Catcher,published_date,Date of Published
+News Catcher,published_date_precision,"published date precision - e.g., timezone information"
+News Catcher,link,full URL
+News Catcher,clean_url,url for the source
+News Catcher,excerpt,excerpt of the article
+News Catcher,summary,summary of the article
+News Catcher,rights,owner of the article (URL)
+News Catcher,rank,rank of the article
+News Catcher,topic,category of the article
+News Catcher,country,country of puchlished 
+News Catcher,langauge,langauge of the article
+News Catcher,authors,author of the article
+News Catcher,media,URL of the News
+News Catcher,is_opinion,whether it is opinion
+News Catcher,twitter_account,twitter account
+News Catcher,score,score
+News Catcher,_id,search id
+News Catcher,status,ok or fail
+News Catcher,total_hits,total hits
+News Catcher,page,page
+News Catcher,total_pages,total pages
+News Catcher,page_Size,size of the page
+News Catcher,user_input,user input
+NYT,abstract,summary of article
+NYT,web_url,URL of the News
+NYT,snippet,summary of article
+NYT,lead_paragraph,lead paragraph or article
+NYT,source,source
+NYT,multimedia,article's information - whether it has image / image URL…
+NYT,keywords,Keyword of News
+NYT,pub_date,Published Datae of news
+NYT,document_type,"Type of document - article, video…"
+NYT,news_desk,category of the article
+NYT,section_name,category of the article
+NYT,type_of_material,"type of the material - news, opinion…"
+NYT,_id,api id
+NYT,word_count,word counts of the articles
+NYT,uri,uri of article
+NYT,headline.main,headline of the news
+NYT,headline.kicker,kicker of the news
+NYT,headline.content_kicker,kicker of the news
+NYT,headline.print_headline,Printed headline
+NYT,headline.name,headline information (normally null)
+NYT,headline.seo,headline information (normally null)
+NYT,headline.sub,headline information (normally null)
+NYT,byline.original,headline information (normally null)
+NYT,byline.person,headline information (normally null)
+NYT,byline.organization,author of the article
+NYT,subsection_name,author of the article
+NEWS API,author,author of the article
+NEWS API,title,title of the article
+NEWS API,description,summary of the article
+NEWS API,url,URL of the News
+NEWS API,urlToImage,url of the image
+NEWS API,publishedAt,published date
+NEWS API,content,summary of the article
+NEWS API,status,status - ok or fail
+NEWS API,totalResults,result id
+NEWS API,id,news source id
+NEWS API,name,source of the news
+Politifact,Author,Source of the news
+Politifact,Published Date,published date
+Politifact,Title,title of the article (on politifact)
+Politifact,Site_url,URL
+Politifact,Label,"Label - True, barely true…"
