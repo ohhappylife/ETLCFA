@@ -33,7 +33,7 @@ try:
   if google != 0:
     dfg = google_main.googleNews(keyword)
     logger.debug("Crawl Google News")
-  if politifact != 0:
+  if politifact != 0: # Politifact does not support keyword search.
     dfp = politifact_main.crawlit()
     logger.debug("Crawl Poltifiact")
   if news != 0:
