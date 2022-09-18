@@ -56,7 +56,7 @@ except IndexError:
   dfny = NYTimes_main.crawlit(keyword)
   dfb = bing_main.bingNews(keyword)
 today = date.today()
-df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb])
+df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb]) # concat the crawled data
 df = df.reset_index(drop = True)
 
 fname = "merged_" + str(today) + '.csv'
