@@ -18,7 +18,7 @@ This will collect news from following sources:
     - https://www.politifact.com/
   - NYTimes
     - https://www.nytimes.com/
-  - Bing News API
+  - Bing News
     - https://www.bing.com/news
 
 ## How to use
