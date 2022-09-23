@@ -8,7 +8,7 @@ from logger import logger
 from extract.bingNews import bing_main
 import pandas as pd
 from datetime import date
-from transform_general import other
+from transform_general import resolve_encoding_issues
 import information
 
 logger.debug("start the process")
@@ -58,7 +58,7 @@ except IndexError:
   dfb = bing_main.bingNews(keyword)
 today = date.today()
 df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb]) # concat the crawled data
-df = other.resolveEncodeIssue(df) # resolve some encode issues; temporary method
+df = resolve_encoding_issues.resolveEncodeIssue(df) # resolve some encode issues; temporary method
 df = df.reset_index(drop = True)
 
 fname = "merged_" + str(today) + '.csv'

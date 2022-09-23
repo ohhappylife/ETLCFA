@@ -1,5 +1,5 @@
 from extract.bingNews import bing_Crawler, bing_Transform
-from transform_general import remove_stop_words, create_Ngram, other
+from transform_general import remove_stop_words, create_Ngram, resolve_encoding_issues
 from datetime import date
 import information
 
@@ -9,7 +9,7 @@ def bingNews(keyword):
     pass
   else: # article is collected
     df = bing_Transform.cleanIT(df)
-    df = other.HTMLtoChar(df)
+    df = resolve_encoding_issues.HTMLtoChar(df)
     df = remove_stop_words.remove_stopwords(df)
 
     today = date.today()
