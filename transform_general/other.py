@@ -14,3 +14,10 @@ def resolveEncodeIssue(df):
     df.to_csv('one.csv', encoding='utf-8')
     df = pd.read_csv('one.csv')
     return df
+
+import html
+from html.parser import HTMLParser
+
+def HTMLtoChar(df):
+  df.applymap(lambda x: html.unescape(x))
+  return df
