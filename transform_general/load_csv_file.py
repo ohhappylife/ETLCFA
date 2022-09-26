@@ -36,4 +36,4 @@ def load_file(file_name):
   else:
     raise Exception("file does not exist")
   df = pd.read_csv(file_name)
-  return file_name
+  return df
