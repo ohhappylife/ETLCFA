@@ -4,6 +4,12 @@ from datetime import date
 import information
 
 def bingNews(keyword):
+  """
+  collect news from Bing based on a keyword and clean it.
+  :param str keyword: collected news articles and transform articles based on keyword.
+  :return: cleaned news articles
+  :rtype: dataframe
+  """
   df = bing_Crawler.crawlIt(keyword)
   if len(df)==0: # no article is collected
     pass
