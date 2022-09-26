@@ -26,7 +26,7 @@ def load_file(file_name):
 
   if os.path.isfile(file_name):
     try:
-      extension = file_name[1:5]
+      extension = file_name[-4:len(str(file_name))]
       if (extension == ".csv") | (extension == ".txt"):
         file_name = fileloc + file_name
       else:
