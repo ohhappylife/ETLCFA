@@ -21,13 +21,13 @@ def load_file(file_name):
   :rtype: dataframe
   """
   cwd = os.getcwd()
-  fileloc = "files"
+  fileloc = ""
   fileloc = os.path.join(cwd, fileloc)
 
   if os.path.isfile(file_name):
     try:
-      extension = file_name[-4]
-      if extension == ".csv":
+      extension = file_name[1:5]
+      if (extension == ".csv") | (extension == ".txt"):
         file_name = fileloc + file_name
       else:
         file_name = fileloc + file_name + ".csv"
@@ -36,4 +36,4 @@ def load_file(file_name):
   else:
     raise Exception("file does not exist")
   df = pd.read_csv(file_name)
-  return df
+  return file_name
