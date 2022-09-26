@@ -9,12 +9,16 @@ def crawlit(keyword):
     pass
   else:
     df = NYTimes_transform.cleanit(df)
-    df = remove_stop_words.remove_stopwords(df)
+    df = remove_stop_words.remove_stopwords(df, 'Title')
+    df = remove_stop_words.remove_stopwords(df, 'Text')
+
     today = date.today()
     fname = "cleaned_NYTimes_" + str(today) + '.csv'
 
     information.savetoBucket(df, 'newsdata', fname)
-    create_Ngram.Ngram(df, 'NYTimes_Ngram' + str(today))
+    create_Ngram.Ngram(df, 'NYTimes_Ngram' + str(today), 'Text_without_stopwords')
+    create_Ngram.Ngram(df, 'NYTimes_Ngram' + str(today), 'Title_without_stopwords')
+
     df['camefrom'] = 'NYTimes'
 
     return df

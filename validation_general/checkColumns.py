@@ -8,7 +8,7 @@ def checkColumnNames(df, source):
     ori = ['title', 'author', 'published_date', 'published_date_precision', 'link', 'clean_url', 'excerpt', 'summary',
            'rights', 'rank', 'topic', 'country', 'language', 'authors', 'media', 'is_opinion', 'twitter_account',
            '_score', '_id', 'status', 'total_hits', 'page', 'total_pages', 'page_size', 'user_input']
-  elif source == 5: # NYTimes
+  elif source == 5:  # NYTimes
     ori = ['abstract', 'web_url', 'snippet', 'lead_paragraph', 'print_section', 'print_page', 'source', 'multimedia',
            'keywords', 'pub_date', 'document_type', 'news_desk', 'section_name', 'subsection_name', 'type_of_material',
            '_id', 'word_count', 'uri', 'headline.main', 'headline.kicker', 'headline.content_kicker',
@@ -16,11 +16,11 @@ def checkColumnNames(df, source):
            'byline.person', 'byline.organization', 'subsection_name']
   elif source == 6:
     ori = ['name', 'url', 'description', 'about', 'mentions', 'provider',
-       'datePublished', 'image.thumbnail.contentUrl', 'image.thumbnail.width',
-       'image.thumbnail.height', 'category', 'video.name',
-       'video.motionThumbnailUrl', 'video.thumbnail.width',
-       'video.thumbnail.height', 'video.thumbnailUrl', 'video.embedHtml',
-       'video.allowHttpsEmbed']
+           'datePublished', 'image.thumbnail.contentUrl', 'image.thumbnail.width',
+           'image.thumbnail.height', 'category', 'video.name',
+           'video.motionThumbnailUrl', 'video.thumbnail.width',
+           'video.thumbnail.height', 'video.thumbnailUrl', 'video.embedHtml',
+           'video.allowHttpsEmbed']
   else:
     ori = ["___"]
 

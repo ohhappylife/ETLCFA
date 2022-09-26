@@ -12,13 +12,16 @@ def googleNews(keyword):
     pass
   else:
     df = news_transform.cleanit(df)
-    df = transform_general.remove_stop_words.remove_stopwords(df)
+    df = transform_general.remove_stop_words.remove_stopwords(df, 'Title')
+    df = transform_general.remove_stop_words.remove_stopwords(df, 'Text')
 
     today = date.today()
     fname = "cleaned_news_catcher_" + str(today) + '.csv'
 
     information.savetoBucket(df, 'newsdata', fname)
-    create_Ngram.Ngram(df, 'news_catcher' + str(today))
+    create_Ngram.Ngram(df, 'news_catcher' + str(today), 'Text_without_stopwords')
+    create_Ngram.Ngram(df, 'news_catcher' + str(today) ,'Title_without_stopwords')
+
     df['camefrom'] = 'newsCatcher'
 
     return df

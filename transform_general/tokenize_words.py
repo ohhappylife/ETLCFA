@@ -9,13 +9,13 @@ __status__ = "Production"
 
 from nltk.tokenize import word_tokenize
 
-def tokenize_words(df):
+def tokenize_words(df, col_name):
   """
   Tokenize news articles for analysis.
   :param dataframe df: dataframe to be cleaned.
   :return: dataframe with tokenized article
   :rtype: dataframe
   """
-  df['tokenized_title'] = df['Title_without_stopwords'].apply(word_tokenize)
-  df['tokenized_text'] = df['Text_without_stopwords'].apply(word_tokenize)
+  col = col_name + 'tokenized'
+  df[col] = df[col_name].apply(word_tokenize)
   return df

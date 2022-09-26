@@ -16,13 +16,16 @@ def bingNews(keyword):
   else: # article is collected
     df = bing_Transform.cleanIT(df)
     df = resolve_encoding_issues.HTMLtoChar(df)
-    df = remove_stop_words.remove_stopwords(df)
+    df = remove_stop_words.remove_stopwords(df, 'Title')
+    df = remove_stop_words.remove_stopwords(df, 'Text')
 
     today = date.today()
     fname = "cleaned_bing_" + str(today) + '.csv'
 
     information.savetoBucket(df, 'newsdata', fname)
-    create_Ngram.Ngram(df, 'bing_Ngram' + str(today))
+    create_Ngram.Ngram(df, 'bing_Ngram' + str(today), 'Title_without_stopwords')
+    create_Ngram.Ngram(df, 'bing_Ngram' + str(today), 'Text_without_stopwords')
+
     df['camefrom'] = 'BingNews'
 
     return df
