@@ -17,6 +17,6 @@ def resolveEncodeIssue(df):
 
 import html
 
-def HTMLtoChar(df):
-  df.applymap(lambda x: html.unescape(x))
+def HTMLtoChar(df, col_name):
+  df[col_name] = df[col_name].apply(lambda x: html.unescape(x))
   return df

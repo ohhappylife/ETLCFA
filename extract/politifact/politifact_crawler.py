@@ -103,7 +103,7 @@ def runit():
                                'Language', 'Site_url', 'Main_img_url', 'Type',
                                'Label', 'hasImage'])
     df['Author'] = sources
-    df['Published Date'] = dates.str.replace(',', '')
+    df['Published Date'] = list(map(lambda x: x.replace(',', ''),dates))
     df['Title'] = statements
     df['Text'] = 'Unavailable'
     df['Title_without_stopwords'] = ''

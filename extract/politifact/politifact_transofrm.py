@@ -14,8 +14,6 @@ __version__ = "1.0.1"
 __email__ = "sshon2@alumni.jh.edu"
 __status__ = "Production"
 
-from transform_general import remove_stop_words
-
 def transofmr_politifact(df):
   df.loc[(df['Label'] == 'false'), 'Label'] = 'Fake'
   df.loc[(df['Label'] == 'pants-fire'), 'Label'] = 'Fake'

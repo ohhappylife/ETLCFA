@@ -58,6 +58,7 @@ except IndexError:
   dfb = bing_main.bingNews(keyword)
 today = date.today()
 df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb]) # concat the crawled data
+
 df = resolve_encoding_issues.resolveEncodeIssue(df) # resolve some encode issues; temporary method
 df = df.reset_index(drop = True)
 

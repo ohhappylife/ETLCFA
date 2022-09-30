@@ -15,7 +15,9 @@ def bingNews(keyword):
     pass
   else: # article is collected
     df = bing_Transform.cleanIT(df)
-    df = resolve_encoding_issues.HTMLtoChar(df)
+    df = resolve_encoding_issues.HTMLtoChar(df, 'Title')
+    df = resolve_encoding_issues.HTMLtoChar(df, 'Text')
+
     df = remove_stop_words.remove_stopwords(df, 'Title')
     df = remove_stop_words.remove_stopwords(df, 'Text')
 
