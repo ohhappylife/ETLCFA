@@ -15,6 +15,12 @@ __email__ = "sshon2@alumni.jh.edu"
 __status__ = "Production"
 
 def transofmr_politifact(df):
+  """
+  Transform the collected dataset.
+  :param dataframe df: collected news articles and transform articles.
+  :return: cleaned news articles
+  :rtype: dataframe
+  """
   df.loc[(df['Label'] == 'false'), 'Label'] = 'Fake'
   df.loc[(df['Label'] == 'pants-fire'), 'Label'] = 'Fake'
   df.loc[(df['Label'] == 'mostly-false'), 'Label'] = 'Fake'

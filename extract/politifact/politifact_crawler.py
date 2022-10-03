@@ -36,6 +36,7 @@ targets = []
 url = []
 
 def runit():
+
   # Create a function to scrape the site
   def scrape_website(page_number, source):
     page_num = str(page_number)  # Convert the page number to a string

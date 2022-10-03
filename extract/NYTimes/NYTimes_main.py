@@ -4,6 +4,12 @@ from extract.NYTimes import NYTimesCrawler, NYTimes_transform
 from transform_general import create_Ngram, remove_stop_words
 
 def crawlit(keyword):
+  """
+  collect news from Bing based on a keyword and clean it.
+  :param str keyword: collected news articles and transform articles based on keyword.
+  :return: cleaned news articles
+  :rtype: dataframe
+  """
   df = NYTimesCrawler.runit(keyword, 1000)
   if len(df) == 0:
     pass

@@ -10,16 +10,22 @@
 This will collect news from following sources:
   - Google News
     - https://news.google.com/
+      - Request API key from Google Developer Console.
   - News API
     - https://newsapi.org/
+      - Request API key from https://newsapi.org/register
   - NewsCatcher News API
     - https://newscatcherapi.com/
+      - Request API key from https://newscatcherapi.com/news-api
   - Politifact
     - https://www.politifact.com/
+      - API key is not needed.
   - NYTimes
     - https://www.nytimes.com/
+      - Request API key from https://developer.nytimes.com/signup
   - Bing News
     - https://www.bing.com/news
+      - Request API key from MS Azure (https://portal.azure.com/#create/microsoft.bingsearch).
 
 ## How to use
 - Please install required library (refer Requirements.txt)

@@ -47,7 +47,6 @@ try:
     dfb = bing_main.bingNews(keyword)
     logger.debug('Crawl Bing news')
 
-
 except IndexError:
   logger.debug("Crawl from ALL sources")
   dfp = politifact_main.crawlit()

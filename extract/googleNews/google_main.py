@@ -6,6 +6,12 @@ from extract.googleNews import google_crawler, google_transform
 from transform_general import create_Ngram
 
 def googleNews(keyword):
+  """
+  collect news from Google based on a keyword and clean it.
+  :param str keyword: collected news articles and transform articles based on keyword.
+  :return: cleaned news articles
+  :rtype: dataframe
+  """
   df = google_crawler.crawlData(keyword)
   if len(df)==0:
     pass

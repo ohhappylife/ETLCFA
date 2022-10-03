@@ -2,8 +2,6 @@
   politifact_main.py
   crawl the data from politifact, clean the datasets and store the datasets.
     requirements : Users shall have privileges to save the file into a cwd.
-    input : none
-    output : four folders, 8 csv files
 """
 __author__ = "Shon"
 __version__ = "1.0.1"
@@ -16,8 +14,13 @@ import information
 from extract.politifact import politifact_crawler, politifact_transofrm
 from transform_general import create_Ngram, remove_stop_words
 
-
 def crawlit():
+  """
+  collect news from Politifact and clean it.
+  :param: None
+  :return: cleaned news articles
+  :rtype: dataframe
+  """
   df = politifact_crawler.runit()
   if len(df) == 0:
     pass

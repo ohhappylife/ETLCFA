@@ -4,11 +4,16 @@ from datetime import date
 import information
 
 def news(keyword):
-
+  """
+  collect news from NewsAPI based on a keyword and clean it.
+  :param str keyword: collected news articles and transform articles based on keyword.
+  :return: cleaned news articles
+  :rtype: dataframe
+  """
   df = news_crawler.crawlData(keyword)
-  if len(df)==0:
+  if len(df) == 0: # No data is collected
     pass
-  else:
+  else: # Data is collected.
     df = news_transform.cleanit(df)
     df = remove_stop_words.remove_stopwords(df, 'Title')
     df = remove_stop_words.remove_stopwords(df, 'Text')
