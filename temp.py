@@ -1,20 +1,20 @@
 def google():
-  return ""
+  return "" # Google API key
 
 def catcher():
-  return ''
+  return '' # News Catcher API Key
 
 def news():
-  return ''
+  return '' # News API key
 
 def NYTimes():
-  return ''
+  return '' # NYTimes API key
 
-def Gurdian():
-  return ''
+def Bing():
+  return '' # Bing API Key
 
-def savetoBucket(df, bn, fn):
+def savetoBucket(df, bn, fn): # bn = bucket name, fn = file name
   path = "s3://" + bn + "/" + fn
   df.to_csv(path,
-            storage_options={'key': '',
-                             'secret': ''})
+            storage_options={'key': '', # AWS Account Key
+                             'secret': ''}) # AWS secret
