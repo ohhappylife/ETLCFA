@@ -14,7 +14,7 @@ def remove_stopwords(df, col_name):
   :rtype: dataframe
   """
   stop = set(stopwords.words('english'))
-  col = 'text_without_stopwords_' + col_name
+  col = col_name + '_without_stopwords'
   df[col] = df.apply(lambda row: nltk.word_tokenize(row[col_name]), axis=1)
 
   df[col] = df[col].apply(lambda words: [word for word in words if word not in stop])

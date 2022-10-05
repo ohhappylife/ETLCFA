@@ -55,14 +55,19 @@ except IndexError:
   dfn = news_main.news(keyword)
   dfny = NYTimes_main.crawlit(keyword)
   dfb = bing_main.bingNews(keyword)
+
 today = date.today()
 df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb]) # concat the crawled data
 
 df = resolve_encoding_issues.resolveEncodeIssue(df) # resolve some encode issues; temporary method
 df = df.reset_index(drop = True)
+df = df.drop(columns=['Unnamed: 0'])
 
 fname = "merged_" + str(today) + '.csv'
+fname2 = "merged_" + str(today) + '.xlsx'
+
 information.savetoBucket(df, 'newsdata', fname)
+information.savetoBucket2(df, 'newsdata', fname2)
 
 logger.debug("end the process")
 

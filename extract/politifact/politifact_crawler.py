@@ -36,7 +36,12 @@ targets = []
 url = []
 
 def runit():
-
+  """
+  Crawl Nes data from Politifact
+  :param None
+  :return: collected news articles and its information.
+  :rtype: dataframe
+  """
   # Create a function to scrape the site
   def scrape_website(page_number, source):
     page_num = str(page_number)  # Convert the page number to a string

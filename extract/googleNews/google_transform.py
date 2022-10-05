@@ -62,7 +62,3 @@ def changeDateType(df):
       t = int(row['Published Date'].split(' ')[0])
       df.iloc[index, df.columns.get_loc('Published Date')] = month(t)
   return df
-
-def remove_stopwords(df):
-  df = remove_stop_words.remove_stopwords(df)
-  return df

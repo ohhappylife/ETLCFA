@@ -5,6 +5,12 @@ import pandas as pd
 from validation_general import generateStatusCode
 
 def runit(keyword, n = 1000):
+  """
+  Crawl Nes data from NYTimes based on keyword
+  :param string keyword: Keyword to be searched
+  :return: collected news articles and its information.
+  :rtype: dataframe
+  """
   nyt = NYTAPI(information.NYTimes(), parse_dates=True)
 
   yesterday = date.today() - timedelta(days=2)

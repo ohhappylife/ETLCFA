@@ -1,4 +1,10 @@
 def checkColumnNames(df, source):
+  """
+  This will compare columns from collected dataframe and compare columns name with information below.
+  :param dataframe df: dataframe to be cleaned, String source: source
+  :return: boolean
+  :rtype: boolean
+  """
   if source == 1:  # Google News
     ori = ['position', 'link', 'title', 'source', 'date', 'snippet', 'thumbnail']
   elif source == 2:  # News API
@@ -24,8 +30,8 @@ def checkColumnNames(df, source):
   else:
     ori = ["___"]
 
-  if list(df.columns) == ori:
+  if list(df.columns) == ori: # Columns are matched
     return False
 
-  else:
+  else: # Columns are not matched
     return True

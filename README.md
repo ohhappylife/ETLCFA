@@ -8,9 +8,9 @@
 
 ## Source
 This will collect news from following sources:
-  - Google News
+  - Google News - It utilized SerpAPI for crawling news data from Google.
     - https://news.google.com/
-      - Request API key from Google Developer Console.
+      - Request API key from https://serpapi.com/news-results
   - News API
     - https://newsapi.org/
       - Request API key from https://newsapi.org/register

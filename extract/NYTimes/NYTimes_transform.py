@@ -3,6 +3,12 @@ from datetime import date
 import pandas as pd
 
 def cleanit(df_temp):
+  """
+   Clean the news articles that are collected from NY times API.
+   :param dataframe df_temp: dataframe that is collected from crawler.
+   :return: Cleaned articles and its information.
+   :rtype: dataframe
+   """
   df = pd.DataFrame(columns=['Author', 'Published Date', 'Title', 'Text',
                              'Title_without_stopwords', 'Text_without_stopwords',
                              'Language', 'Site_url', 'Main_img_url', 'Type',

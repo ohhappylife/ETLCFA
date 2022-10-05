@@ -2,6 +2,12 @@ from validation_general import checkSize, checkColumns
 from logger import logger
 
 def columnsChanged(source, df):
+  """
+  This will run checkColumns.py based on source, and stroe logs.
+  :param String source : souurce, dataframe df: dataframe to be checked
+  :return: None
+  :rtype: None
+  """
   if source == 1:
     name = "Google"
     code = 301
@@ -32,6 +38,12 @@ def columnsChanged(source, df):
     logger.debug("Columns Unchanged : " + name)
 
 def dataNotCollected(source, df):
+  """
+  This will check the size of dataframe and store the logs
+  :param String source : source, dataframe df: dataframe to be cleaned
+  :return: None
+  :rtype: None
+  """
   if source == 1:
     name = "Google"
     code = 401
