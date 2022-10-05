@@ -31,5 +31,5 @@ def cleanIT(df_temp):
 
   today = date.today()
   fname = "uncleared_bingNews" + str(today) + '.csv'
-  information.savetoBucket(df, 'newsdata', fname)
+  information.savetoBucket_csv(df, 'newsdata', fname)
   return df

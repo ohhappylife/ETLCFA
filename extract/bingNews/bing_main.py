@@ -24,7 +24,7 @@ def bingNews(keyword):
     today = date.today()
     fname = "cleaned_bing_" + str(today) + '.csv'
 
-    information.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket_csv(df, 'newsdata', fname)
     create_Ngram.Ngram(df, 'bing_Ngram' + str(today), 'Title_without_stopwords')
     create_Ngram.Ngram(df, 'bing_Ngram' + str(today), 'Text_without_stopwords')
 

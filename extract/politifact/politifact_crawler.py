@@ -125,10 +125,10 @@ def runit():
     generateStatusCode.dataNotCollected(4, df)
 
     fname = "raw_politifact" + str(today) + '.csv'
-    information.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket_csv(df, 'newsdata', fname)
 
     fname = "uncleared_politifact_" + str(today) + '.csv'
-    information.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket_csv(df, 'newsdata', fname)
 
     return df
   else:

@@ -63,11 +63,11 @@ df = resolve_encoding_issues.resolveEncodeIssue(df) # resolve some encode issues
 df = df.reset_index(drop = True)
 df = df.drop(columns=['Unnamed: 0'])
 
-fname = "merged_" + str(today) + '.csv'
-fname2 = "merged_" + str(today) + '.xlsx'
+fname_csv = "merged_" + str(today) + '.csv'
+fname_excel = "merged_" + str(today) + '.xlsx'
 
-information.savetoBucket(df, 'newsdata', fname)
-information.savetoBucket2(df, 'newsdata', fname2)
+information.savetoBucket_csv(df, 'newsdata', fname_csv)
+information.savetoBucket_excel(df, 'newsdata', fname_excel)
 
 logger.debug("end the process")
 

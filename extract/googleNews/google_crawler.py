@@ -31,7 +31,7 @@ def crawlData(keyword):
     if c == 1:
         generateStatusCode.columnsChanged(1, df_temp)
         fname = "raw_google" + str(today) + '.csv'
-        information.savetoBucket(df_temp, 'newsdata', fname)
+        information.savetoBucket_csv(df_temp, 'newsdata', fname)
         return df_temp
 
     else:

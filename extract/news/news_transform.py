@@ -28,6 +28,6 @@ def cleanit(df_temp):
   # Show the data set
   today = date.today()
   fname = "uncleared_news_" + str(today) + '.csv'
-  information.savetoBucket(df_temp, 'newsdata', fname)
+  information.savetoBucket_csv(df_temp, 'newsdata', fname)
 
   return df

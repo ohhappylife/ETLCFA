@@ -28,7 +28,7 @@ def newsCatcher(keyword):
     generateStatusCode.columnsChanged(3, df_temp)
 
     fname = "raw_news_catcher" + str(today) + '.csv'
-    information.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket_csv(df, 'newsdata', fname)
     return df_temp
   else:
     return df

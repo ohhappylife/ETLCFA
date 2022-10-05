@@ -42,6 +42,6 @@ def Ngram(df, name, col_name):
 
     ngram_title = (pd.Series(nltk.ngrams(title, i)).value_counts()).reset_index()
 
-    information.savetoBucket(ngram_title, 'ngram', ftitle)
+    information.savetoBucket_csv(ngram_title, 'ngram', ftitle)
 
 

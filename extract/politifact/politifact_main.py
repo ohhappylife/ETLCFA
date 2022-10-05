@@ -32,7 +32,7 @@ def crawlit():
     today = date.today()
     fname = "cleaned_politifact_" + str(today) + '.csv'
 
-    information.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket_csv(df, 'newsdata', fname)
 
     create_Ngram.Ngram(df, 'politifact_Ngram' + str(today), 'Title_without_stopwords')
     create_Ngram.Ngram(df, 'politifact_Ngram' + str(today), 'Text_without_stopwords')

@@ -40,7 +40,7 @@ def crawlData(keyword):
     generateStatusCode.columnsChanged(2, df_temp)
 
     fname = "raw_news" + str(today) + '.csv'
-    information.savetoBucket(df_temp, 'newsdata', fname)
+    information.savetoBucket_csv(df_temp, 'newsdata', fname)
     return df_temp
 
   else:

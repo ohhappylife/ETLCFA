@@ -23,7 +23,7 @@ def googleNews(keyword):
     today = date.today()
     fname = "cleaned_news_catcher_" + str(today) + '.csv'
 
-    information.savetoBucket(df, 'newsdata', fname)
+    information.savetoBucket_csv(df, 'newsdata', fname)
     create_Ngram.Ngram(df, 'news_catcher' + str(today), 'Text_without_stopwords')
     create_Ngram.Ngram(df, 'news_catcher' + str(today) ,'Title_without_stopwords')
 
