@@ -6,6 +6,12 @@
 3. Users can set keyword for the articles for search (except politifact).
 4. Users can leverage S3 to store and retrieve data.
 
+## Output
+1. Uni-gram, Bi-gram, Tri-gram for each article and title will be created (by sources),
+2. Raw data will be created.
+3. Concatenated/individual cleaned data will be stored
+   - example: https://drive.google.com/file/d/1jmP28mt2O34NWnW6TB6AJ_Gv7g9dje1d/view?usp=sharing
+   
 ## Source
 This will collect news from following sources:
   - Google News - It utilized SerpAPI for crawling news data from Google.
