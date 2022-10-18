@@ -51,14 +51,21 @@ def month(month):
     return mod_date
 
 def changeDateType(df):
+
   for index, row in df.iterrows():
     if row['Published Date'].split(' ')[1] in (['day' , 'days']):
       t = int(row['Published Date'].split(' ')[0])
       df.iloc[index, df.columns.get_loc('Published Date')] = day(t)
     elif row['Published Date'].split(' ')[1] in (['hour' , 'hours']):
-      t = int(row['Published Date'].split(' ')[0])
-      df.iloc[index, df.columns.get_loc('Published Date')] = hour(t)
+        today = date.today()
+        s = str(today.year) + '-' + str(today.month) + '-' + str(today.day)
+        df.iloc[index, df.columns.get_loc('Published Date')] = s
     elif row['Published Date'].split(' ')[1] in (['month' , 'months']):
       t = int(row['Published Date'].split(' ')[0])
       df.iloc[index, df.columns.get_loc('Published Date')] = month(t)
+    else:
+        today = date.today()
+        s = str(today.year) + '-' + str(today.month) + '-' + str(today.day)
+        df.iloc[index, df.columns.get_loc('Published Date')] = s
+
   return df

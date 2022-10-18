@@ -35,6 +35,7 @@ def transofmr_politifact(df):
   df = df[df['Label'] != 'Unverified']
   df = df[df['Label'] != 'half-flip']
   df = df[df['Label'] != 'full-flip']
+  df = df[df['Label'] != 'full-flop']
   df = df[df['Label'] != 'no-flip']
 
 

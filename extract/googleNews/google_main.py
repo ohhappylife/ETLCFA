@@ -16,10 +16,10 @@ def googleNews(keyword):
     pass
   else:
     df = google_transform.cleanIT(df)
+    print(df)
     df = google_transform.changeDateType(df)
     df = transform_general.remove_stop_words.remove_stopwords(df, 'Title')
     df = transform_general.remove_stop_words.remove_stopwords(df, 'Text')
-
     today = date.today()
     fname = "cleaned_google_" + str(today) + '.csv'
 
