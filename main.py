@@ -10,6 +10,7 @@ import pandas as pd
 from datetime import date
 from transform_general import resolve_encoding_issues
 import information
+from Analyze_General import extract_keyword, summraize_text
 
 logger.debug("start the process")
 
@@ -62,7 +63,8 @@ df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb]) # concat the crawled data
 df = resolve_encoding_issues.resolveEncodeIssue(df) # resolve some encode issues; temporary method
 df = df.reset_index(drop = True)
 df = df.drop(columns=['Unnamed: 0'])
-
+df = extract_keyword.get_keyword(df)
+df = summraize_text.summarize(df)
 fname_csv = "merged_" + str(today) + '.csv'
 fname_excel = "merged_" + str(today) + '.xlsx'
 

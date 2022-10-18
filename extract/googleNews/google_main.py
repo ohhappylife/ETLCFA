@@ -1,5 +1,4 @@
 from datetime import date
-
 import information
 import transform_general.remove_stop_words
 from extract.googleNews import google_crawler, google_transform

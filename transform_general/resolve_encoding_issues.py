@@ -13,7 +13,9 @@ def resolveEncodeIssue(df):
     df[c] = df[c].astype(str).str.replace("”", "\"")
     df[c] = df[c].astype(str).str.replace("‘", "\'")
     df[c] = df[c].astype(str).str.replace("’", "\'")
+    df[c] = df[c].astype(str).str.replace("`", "\'")
     df[c] = df[c].astype(str).str.replace("–", ":")
+    df[c] = df[c].astype(str).str.replace("…", "...")
     df[c] = df[c].astype(str).str.replace("…", "...")
 
     df['Site_url'] = df['Site_url'].astype(str).str.replace(".com//", ".com/")
