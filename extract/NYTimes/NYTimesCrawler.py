@@ -33,8 +33,8 @@ def runit(keyword, n = 1000):
     df_temp = pd.json_normalize(articles)
     generateStatusCode.dataNotCollected(5, df_temp)
     generateStatusCode.columnsChanged(5, df_temp)
-    fname = "RAW_NYTimes" + str(today) + '.csv'
-    information.savetoBucket_csv(df_temp, 'newsdata', fname)
+    fname = "raw_NYTimes_" + keyword + '_' + str(today) + '.csv'
+    information.savetoBucket_csv(df_temp, 'newsrawnytimes', fname)
 
     return df_temp
   else:

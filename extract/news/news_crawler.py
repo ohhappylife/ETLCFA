@@ -39,8 +39,8 @@ def crawlData(keyword):
     generateStatusCode.dataNotCollected(2, df_temp)
     generateStatusCode.columnsChanged(2, df_temp)
 
-    fname = "raw_news" + str(today) + '.csv'
-    information.savetoBucket_csv(df_temp, 'newsdata', fname)
+    fname = "raw_news_" + keyword + '_' + str(today) + '.csv'
+    information.savetoBucket_csv(df_temp, 'newsrawnewsapi', fname)
     return df_temp
 
   else:

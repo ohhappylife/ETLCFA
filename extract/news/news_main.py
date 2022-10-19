@@ -14,16 +14,16 @@ def news(keyword):
   if len(df) == 0: # No data is collected
     pass
   else: # Data is collected.
-    df = news_transform.cleanit(df)
+    df = news_transform.cleanit(df, keyword)
     df = remove_stop_words.remove_stopwords(df, 'Title')
     df = remove_stop_words.remove_stopwords(df, 'Text')
 
     today = date.today()
-    fname = "cleaned_news" + str(today) + '.csv'
+    fname = "cleaned_news_" +keyword + '_' + str(today) + '.csv'
 
-    information.savetoBucket_csv(df, 'newsdata', fname)
-    create_Ngram.Ngram(df, 'news' + str(today), 'Text_without_stopwords')
-    create_Ngram.Ngram(df, 'news' + str(today) ,'Title_without_stopwords')
+    information.savetoBucket_csv(df, 'newscleanednewsapi', fname)
+    create_Ngram.Ngram(df, 'news'  + keyword + '_' + str(today), 'Text_without_stopwords')
+    create_Ngram.Ngram(df, 'news'  + keyword + '_' + str(today) ,'Title_without_stopwords')
 
     df['camefrom'] = 'newsAPI'
 

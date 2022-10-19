@@ -6,7 +6,7 @@ import information
 
 now = datetime.now()
 
-def cleanIT(df_temp):
+def cleanIT(df_temp, keyword):
   """
   Clean collected news articles from google_crawler.py
   :param dataframe df_temp: collected news article and it's information from google_crawler.py
@@ -31,7 +31,7 @@ def cleanIT(df_temp):
 
   # Show the data set
   today = date.today()
-  fname = "uncleared_google_" + str(today) + '.csv'
+  fname = "uncleared_google_" + keyword + '_' + str(today) + '.csv'
   information.savetoBucket_csv(df, 'newsdata', fname)
   return df
 

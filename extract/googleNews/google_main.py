@@ -15,17 +15,16 @@ def googleNews(keyword):
   if len(df)==0:
     pass
   else:
-    df = google_transform.cleanIT(df)
-    print(df)
+    df = google_transform.cleanIT(df, keyword)
     df = google_transform.changeDateType(df)
     df = transform_general.remove_stop_words.remove_stopwords(df, 'Title')
     df = transform_general.remove_stop_words.remove_stopwords(df, 'Text')
     today = date.today()
-    fname = "cleaned_google_" + str(today) + '.csv'
+    fname = "cleaned_google_" +keyword + '_' + str(today) + '.csv'
 
-    information.savetoBucket_csv(df, 'newsdata', fname)
-    create_Ngram.Ngram(df, 'google_Ngram' + str(today), 'Text_without_stopwords')
-    create_Ngram.Ngram(df, 'google_Ngram' + str(today), 'Title_without_stopwords')
+    information.savetoBucket_csv(df, 'newscleanedgooglenews', fname)
+    create_Ngram.Ngram(df, 'google_Ngram' + keyword + '_' + str(today), 'Text_without_stopwords')
+    create_Ngram.Ngram(df, 'google_Ngram' + keyword + '_' + str(today), 'Title_without_stopwords')
 
     df['camefrom'] = 'GoogleNews'
 

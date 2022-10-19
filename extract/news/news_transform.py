@@ -2,7 +2,7 @@ import information
 from datetime import date
 import pandas as pd
 
-def cleanit(df_temp):
+def cleanit(df_temp, keyword):
   """
   Clean the news articles that are collected from News API.
   :param dataframe df_temp: dataframe that is collected from crawler.
@@ -27,7 +27,7 @@ def cleanit(df_temp):
 
   # Show the data set
   today = date.today()
-  fname = "uncleared_news_" + str(today) + '.csv'
+  fname = "uncleared_news_"  + keyword + '_' + str(today) + '.csv'
   information.savetoBucket_csv(df_temp, 'newsdata', fname)
 
   return df

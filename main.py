@@ -36,7 +36,7 @@ try:
         dfg = google_main.googleNews(keyword)
         logger.debug("Crawl Google News")
     if politifact != 0:  # Politifact does not support keyword search.
-        dfp = politifact_main.crawlit()
+        dfp = politifact_main.crawlit(keyword)
         logger.debug("Crawl Poltifiact")
     if news != 0:
         dfn = news_main.news(keyword)
@@ -50,10 +50,9 @@ try:
 
 except IndexError:
     logger.debug("Crawl from ALL sources")
-    dfp = politifact_main.crawlit()
+    dfp = politifact_main.crawlit(keyword)
     dfnc = news_catcher_main.googleNews(keyword)
     dfg = google_main.googleNews(keyword)
-
     dfn = news_main.news(keyword)
     dfny = NYTimes_main.crawlit(keyword)
     dfb = bing_main.bingNews(keyword)
@@ -67,11 +66,10 @@ df = df.drop(columns=['Unnamed: 0'])
 df = extract_keyword.get_keyword(df)
 df = summraize_text.summarize(df)
 df.dropna(subset=['Author'], inplace=True)
-# df = df[df['Published Date'].astype(str).str.split('-')[0] == '2022']
-fname_csv = "merged_" + str(today) + '.csv'
-fname_excel = "merged_" + str(today) + '.xlsx'
+fname_csv = "merged_" + keyword + '_'  + str(today) + '.csv'
+fname_excel = "merged_" + keyword + '_'  + str(today) + '.xlsx'
 
-information.savetoBucket_csv(df, 'newsdata', fname_csv)
-information.savetoBucket_excel(df, 'newsdata', fname_excel)
+information.savetoBucket_csv(df, 'newsmergedcleaned', fname_csv)
+information.savetoBucket_excel(df, 'newsmergedcleaned', fname_excel)
 
 logger.debug("end the process")

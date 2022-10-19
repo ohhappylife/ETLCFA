@@ -3,7 +3,7 @@ import information
 from datetime import date, timedelta
 import pandas as pd
 
-def cleanit(df_temp):
+def cleanit(df_temp, keyword):
   """
   Clean the news articles that are collected from Newscatcher API.
   :param dataframe df_temp: dataframe that is collected from crawler.
@@ -28,6 +28,6 @@ def cleanit(df_temp):
 
   # Show the data set
   today = date.today()
-  fname = "uncleared_news_catcher" + str(today) + '.csv'
+  fname = "uncleared_news_catcher_" + keyword + '_' + str(today) + '.csv'
   information.savetoBucket_csv(df, 'newsdata', fname)
   return df

@@ -38,10 +38,10 @@ def Ngram(df, name, col_name):
   title = basic_clean(''.join(str(df[col_name].tolist())))
 
   for i in range(1,4): # file name = {source_name}_title_n.csv
-    ftitle = name + "_" + col_name + "_" + '_' + str(i) + '.csv'
+    ftitle = name + "_" + col_name + '_' + str(i) + '.csv'
 
     ngram_title = (pd.Series(nltk.ngrams(title, i)).value_counts()).reset_index()
 
-    information.savetoBucket_csv(ngram_title, 'ngram', ftitle)
+    information.savetoBucket_csv(ngram_title, 'newsngram', ftitle)
 
 

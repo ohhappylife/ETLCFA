@@ -14,7 +14,7 @@ def bingNews(keyword):
   if len(df)==0: # no article is collected
     pass
   else: # article is collected
-    df = bing_Transform.cleanIT(df)
+    df = bing_Transform.cleanIT(df, keyword)
     df = resolve_encoding_issues.HTMLtoChar(df, 'Title')
     df = resolve_encoding_issues.HTMLtoChar(df, 'Text')
 
@@ -22,11 +22,11 @@ def bingNews(keyword):
     df = remove_stop_words.remove_stopwords(df, 'Text')
 
     today = date.today()
-    fname = "cleaned_bing_" + str(today) + '.csv'
+    fname = "cleaned_bing_" + keyword + '_' + str(today) + '.csv'
 
-    information.savetoBucket_csv(df, 'newsdata', fname)
-    create_Ngram.Ngram(df, 'bing_Ngram' + str(today), 'Title_without_stopwords')
-    create_Ngram.Ngram(df, 'bing_Ngram' + str(today), 'Text_without_stopwords')
+    information.savetoBucket_csv(df, 'newscleanedbingnews', fname)
+    create_Ngram.Ngram(df, 'bing_Ngram_' + keyword + '_' + str(today), 'Title_without_stopwords')
+    create_Ngram.Ngram(df, 'bing_Ngram' + keyword + '_' + str(today), 'Text_without_stopwords')
 
     df['camefrom'] = 'BingNews'
 

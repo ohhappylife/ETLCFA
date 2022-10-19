@@ -35,7 +35,7 @@ sources = []
 targets = []
 url = []
 
-def runit():
+def runit(keyword):
   """
   Crawl Nes data from Politifact
   :param None
@@ -124,11 +124,11 @@ def runit():
     # Show the data set
     generateStatusCode.dataNotCollected(4, df)
 
-    fname = "raw_politifact" + str(today) + '.csv'
-    information.savetoBucket_csv(df, 'newsdata', fname)
+    fname = "raw_politifact_" + keyword + '_' + str(today) + '.csv'
+    information.savetoBucket_csv(df, 'newsrawpolitifact', fname)
 
-    fname = "uncleared_politifact_" + str(today) + '.csv'
-    information.savetoBucket_csv(df, 'newsdata', fname)
+    fname = "uncleared_politifact_" + keyword + '_' + str(today) + '.csv'
+    information.savetoBucket_csv(df, 'newsrawpolitifact', fname)
 
     return df
   else:

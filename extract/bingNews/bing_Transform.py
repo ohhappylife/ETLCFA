@@ -6,7 +6,7 @@ import information
 
 now = datetime.now()
 
-def cleanIT(df_temp):
+def cleanIT(df_temp,keyword):
   """
   Clean news articles that are collected from bing_Crawler.py
   :param dataframe df_temp: collected news articles and it's information.
@@ -30,6 +30,6 @@ def cleanIT(df_temp):
   df['hasImage'] = df_temp['image.thumbnail.contentUrl'].notnull()
 
   today = date.today()
-  fname = "uncleared_bingNews" + str(today) + '.csv'
+  fname = "uncleared_bingNews_" + keyword + '_' + str(today) + '.csv'
   information.savetoBucket_csv(df, 'newsdata', fname)
   return df
