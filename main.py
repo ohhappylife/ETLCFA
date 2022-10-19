@@ -22,6 +22,7 @@ except IndexError:
     exit(-1)
 
 try:
+    ls = []
     catcher = sys.argv[2]  # 1
     google = sys.argv[3]  # 2
     politifact = sys.argv[4]  # 3
@@ -56,9 +57,9 @@ except IndexError:
     dfn = news_main.news(keyword)
     dfny = NYTimes_main.crawlit(keyword)
     dfb = bing_main.bingNews(keyword)
+    df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb])
 
 today = date.today()
-df = pd.concat([dfp, dfnc, dfg, dfn, dfny, dfb])  # concat the crawled data
 
 df = resolve_encoding_issues.resolveEncodeIssue(df)  # resolve some encode issues; temporary method
 df = df.reset_index(drop=True)
@@ -66,8 +67,8 @@ df = df.drop(columns=['Unnamed: 0'])
 df = extract_keyword.get_keyword(df)
 df = summraize_text.summarize(df)
 df.dropna(subset=['Author'], inplace=True)
-fname_csv = "merged_" + keyword + '_'  + str(today) + '.csv'
-fname_excel = "merged_" + keyword + '_'  + str(today) + '.xlsx'
+fname_csv = "merged_" + keyword + '_' + str(today) + '.csv'
+fname_excel = "merged_" + keyword + '_' + str(today) + '.xlsx'
 
 information.savetoBucket_csv(df, 'newsmergedcleaned', fname_csv)
 information.savetoBucket_excel(df, 'newsmergedcleaned', fname_excel)

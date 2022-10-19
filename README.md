@@ -11,7 +11,7 @@
 2. Raw data will be created.
 3. Concatenated/individual cleaned data will be stored
    - example: https://drive.google.com/file/d/1jmP28mt2O34NWnW6TB6AJ_Gv7g9dje1d/view?usp=sharing
-   
+
 ## Source
 This will collect news from following sources:
   - Google News - It utilized SerpAPI for crawling news data from Google.
@@ -47,6 +47,7 @@ This will collect news from following sources:
 - The pipeline does not store logs (Partially Fixed  as of Sept 8 2022 : ONLY critical issues and errors are stored into log files).
 - As it utilizes default list of stopwords from NLTK, not all stopwords might be removed during the process.
 - Stores login credentials into codes can increase chance of data breach.
+- Currently, the user needs to set 15 + AWS S3 buckets and hard code bucket name to store the data. This will be fixed by parameterize the bucket name.
 
 ## Limitations
 - Some sources provide limited information
