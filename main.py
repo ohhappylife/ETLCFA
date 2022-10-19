@@ -22,7 +22,6 @@ except IndexError:
     exit(-1)
 
 try:
-    ls = []
     catcher = sys.argv[2]  # 1
     google = sys.argv[3]  # 2
     politifact = sys.argv[4]  # 3
@@ -30,23 +29,34 @@ try:
     NYTtimes = sys.argv[6]  # 5
     Bing = sys.argv[7]  # 6
 
+    df = pd.DataFrame(columns=['Author', 'Published Date', 'Title', 'Text',
+                               'Title_without_stopwords', 'Text_without_stopwords',
+                               'Language', 'Site_url', 'Main_img_url', 'Type',
+                               'Label', 'hasImage'])
+
     if catcher != 0:
         dfnc = news_catcher_main.googleNews(keyword)
+        df = pd.concat([df, dfnc])
         logger.debug("Crawl News Catcher")
     if google != 0:
         dfg = google_main.googleNews(keyword)
+        df = pd.concat([df, dfg])
         logger.debug("Crawl Google News")
     if politifact != 0:  # Politifact does not support keyword search.
         dfp = politifact_main.crawlit(keyword)
+        df = pd.concat([df, dfp])
         logger.debug("Crawl Poltifiact")
     if news != 0:
         dfn = news_main.news(keyword)
+        df = pd.concat([df, dfn])
         logger.debug("Crawl News API")
     if NYTtimes != 0:
         dfny = NYTimes_main.crawlit(keyword)
+        df = pd.concat([df, dfny])
         logger.debug("Crawl NYTimes")
     if Bing != 0:
         dfb = bing_main.bingNews(keyword)
+        df = pd.concat([df, dfb])
         logger.debug('Crawl Bing news')
 
 except IndexError:
