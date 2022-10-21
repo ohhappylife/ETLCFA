@@ -30,9 +30,9 @@ def cleanIT(df_temp, keyword):
   df['hasImage'] = df_temp['thumbnail'].notnull()
 
   # Show the data set
-  today = date.today()
-  fname = "uncleared_google_" + keyword + '_' + str(today) + '.csv'
-  information.savetoBucket_csv(df, 'newsdata', fname)
+#  today = date.today()
+#  fname = "uncleared_google_" + keyword + '_' + str(today) + '.csv'
+#  information.savetoBucket_csv(df, 'newsdata', fname)
   return df
 
 def hour(hour):

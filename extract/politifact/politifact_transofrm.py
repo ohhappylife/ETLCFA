@@ -38,7 +38,6 @@ def transofmr_politifact(df):
   df = df[df['Label'] != 'full-flop']
   df = df[df['Label'] != 'no-flip']
 
-
   df.dropna(subset=['Title'], inplace=True)
   df.drop(columns=['Label'])
   return df

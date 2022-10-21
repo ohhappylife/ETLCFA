@@ -26,8 +26,8 @@ def cleanit(df_temp, keyword):
   df['hasImage'] = df_temp['urlToImage'].notnull()
 
   # Show the data set
-  today = date.today()
-  fname = "uncleared_news_"  + keyword + '_' + str(today) + '.csv'
-  information.savetoBucket_csv(df_temp, 'newsdata', fname)
+#  today = date.today()
+#  fname = "uncleared_news_"  + keyword + '_' + str(today) + '.csv'
+#  information.savetoBucket_csv(df_temp, 'newsdata', fname)
 
   return df

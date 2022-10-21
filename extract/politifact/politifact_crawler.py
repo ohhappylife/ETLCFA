@@ -127,8 +127,8 @@ def runit(keyword):
     fname = "raw_politifact_" + keyword + '_' + str(today) + '.csv'
     information.savetoBucket_csv(df, 'newsrawpolitifact', fname)
 
-    fname = "uncleared_politifact_" + keyword + '_' + str(today) + '.csv'
-    information.savetoBucket_csv(df, 'newsrawpolitifact', fname)
+#    fname = "uncleared_politifact_" + keyword + '_' + str(today) + '.csv'
+#    information.savetoBucket_csv(df, 'newsrawpolitifact', fname)
 
     return df
   else:

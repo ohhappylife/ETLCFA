@@ -30,6 +30,6 @@ def cleanIT(df_temp,keyword):
   df['hasImage'] = df_temp['image.thumbnail.contentUrl'].notnull()
 
   today = date.today()
-  fname = "uncleared_bingNews_" + keyword + '_' + str(today) + '.csv'
-  information.savetoBucket_csv(df, 'newsdata', fname)
+#  fname = "uncleared_bingNews_" + keyword + '_' + str(today) + '.csv'
+#  information.savetoBucket_csv(df, 'newscleanedbingnews', fname)
   return df
