@@ -14,6 +14,10 @@ from Analyze_General import extract_keyword, summraize_text
 
 logger.debug("start the process")
 
+file1 = open('myfile.txt', 'r')
+Lines = file1.readlines()
+Lines.readlines(0)
+
 try:
     keyword = sys.argv[1]  # To test at the Pycharm. Please change it into 0 after the testing.
     logger.debug("Received Keyword : " + str(keyword))

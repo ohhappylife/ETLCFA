@@ -32,7 +32,7 @@ def crawlIt(keyword):
   if c == 1:
     generateStatusCode.columnsChanged(6, df_temp)
     fname = "raw_bing_" + keyword + '_' + str(today) + '.csv'
-    information.savetoBucket_csv(df_temp, 'newsrawgooglenews', fname)
+    information.savetoBucket_csv(df_temp, 'newsrawbingnews', fname)
     return df_temp
   else:
     return df_temp

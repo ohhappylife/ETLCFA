@@ -1,2 +1,0 @@
-,status,total_hits,page,total_pages,page_size,user_input
-0,ok,10000,1,200,50,"{'q': 'tesla', 'search_in': ['title_summary'], 'lang': None, 'not_lang': None, 'countries': None, 'not_countries': None, 'from': '2022-08-30 00:00:00', 'to': None, 'ranked_only': 'True', 'from_rank': None, 'to_rank': None, 'sort_by': 'relevancy', 'page': 1, 'size': 50, 'sources': None, 'not_sources': None, 'topic': None, 'published_date_precision': None}"
