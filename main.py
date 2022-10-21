@@ -14,8 +14,6 @@ from Analyze_General import extract_keyword, summraize_text
 
 logger.debug("start the process")
 
-file1 = open('myfile.txt', 'r')
-
 try:
     keyword = sys.argv[1]  # To test at the Pycharm. Please change it into 0 after the testing.
     logger.debug("Received Keyword : " + str(keyword))
@@ -40,10 +38,10 @@ try:
         dfnc = news_catcher_main.googleNews(keyword)
         df = pd.concat([df, dfnc])
         logger.debug("Crawl News Catcher")
-    if google != 0:
-        dfg = google_main.googleNews(keyword)
-        df = pd.concat([df, dfg])
-        logger.debug("Crawl Google News")
+#    if google != 0:
+#        dfg = google_main.googleNews(keyword)
+#        df = pd.concat([df, dfg])
+#        logger.debug("Crawl Google News")
     if politifact != 0:  # Politifact does not support keyword search.
         dfp = politifact_main.crawlit(keyword)
         df = pd.concat([df, dfp])
