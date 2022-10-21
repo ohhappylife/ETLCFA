@@ -38,10 +38,10 @@ try:
         dfnc = news_catcher_main.googleNews(keyword)
         df = pd.concat([df, dfnc])
         logger.debug("Crawl News Catcher")
-#    if google != 0:
-#        dfg = google_main.googleNews(keyword)
-#        df = pd.concat([df, dfg])
-#        logger.debug("Crawl Google News")
+    if google != 0:
+        dfg = google_main.googleNews(keyword)
+        df = pd.concat([df, dfg])
+        logger.debug("Crawl Google News")
     if politifact != 0:  # Politifact does not support keyword search.
         dfp = politifact_main.crawlit(keyword)
         df = pd.concat([df, dfp])
