@@ -1,7 +1,7 @@
 from keybert import KeyBERT
 
 def summarize(df):
-  # No model is supplied; default model = sshleifer/distilbart-cnn-12-6
+  # No model is supplied; default model = cnn
   keybert = KeyBERT()
   keywords = keybert.extract_keywords(
     df["Text"],
