@@ -12,7 +12,8 @@ __status__ = "Production"
 
 import os
 import pandas as pd
-
+from csv import reader
+import csv
 def load_file(file_name):
   """
   Load csv file and store it as dataframe
@@ -37,3 +38,13 @@ def load_file(file_name):
     raise Exception("file does not exist")
   df = pd.read_csv(file_name)
   return df
+
+def readLinebyLine(file_name):
+  ls = []
+  fn = str(file_name) + "txt"
+  with open(fn, 'r') as read_obj:
+    reader = csv.reader(read_obj)
+    data = list(reader)
+    for d in data:
+      ls.append(str(d).split(":")[1][0])
+    return ls
