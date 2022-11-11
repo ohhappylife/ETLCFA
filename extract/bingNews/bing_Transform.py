@@ -1,8 +1,8 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 import pandas as pd
 from datetime import date
 import information
-
+from config import s3_bing_news_uncleaned, bool_store_bing_unclean
 
 now = datetime.now()
 
@@ -30,6 +30,7 @@ def cleanIT(df_temp,keyword):
   df['hasImage'] = df_temp['image.thumbnail.contentUrl'].notnull()
 
   today = date.today()
-#  fname = "uncleared_bingNews_" + keyword + '_' + str(today) + '.csv'
-#  information.savetoBucket_csv(df, 'newscleanedbingnews', fname)
+  if bool_store_bing_unclean == True:
+    fname = "uncleared_bingNews_" + keyword + '_' + str(today) + '.csv'
+    information.savetoBucket_csv(df, s3_bing_news_uncleaned, fname)
   return df

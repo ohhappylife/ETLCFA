@@ -4,9 +4,8 @@ from datetime import date
 import information
 import pandas as pd
 from validation_general import generateStatusCode
-
 today = date.today()
-
+from config import credential_Bing_key, s3_bing_news_raw, bool_store_bing_raw
 def crawlIt(keyword):
   """
   Crawl news articles from Bing News based on keyword.
@@ -14,7 +13,7 @@ def crawlIt(keyword):
   :return: crawled news articles and its information
   :rtype: dataframe
   """
-  subscription_key = information.Bing()
+  subscription_key = credential_Bing_key
   search_url = "https://api.bing.microsoft.com/v7.0/news/search"
 
   headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
@@ -31,8 +30,9 @@ def crawlIt(keyword):
   c = generateStatusCode.dataNotCollected(6, df_temp)
   if c == 1:
     generateStatusCode.columnsChanged(6, df_temp)
-    fname = "raw_bing_" + keyword + '_' + str(today) + '.csv'
-    information.savetoBucket_csv(df_temp, 'newsrawbingnews', fname)
+    if bool_store_bing_raw == True:
+      fname = "raw_bing_" + keyword + '_' + str(today) + '.csv'
+      information.savetoBucket_csv(df_temp, s3_bing_news_raw , fname)
     return df_temp
   else:
     return df_temp

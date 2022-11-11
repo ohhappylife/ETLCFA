@@ -3,6 +3,8 @@ import information
 import transform_general.remove_stop_words
 from extract.googleNews import google_crawler, google_transform
 from transform_general import create_Ngram
+from config import bool_store_google_clean, bool_store_google_ngram
+
 
 def googleNews(keyword):
   """
@@ -21,10 +23,11 @@ def googleNews(keyword):
     df = transform_general.remove_stop_words.remove_stopwords(df, 'Text')
     today = date.today()
     fname = "cleaned_google_" +keyword + '_' + str(today) + '.csv'
-
-    information.savetoBucket_csv(df, 'newscleanedgooglenews', fname)
-    create_Ngram.Ngram(df, 'google_Ngram' + keyword + '_' + str(today), 'Text_without_stopwords')
-    create_Ngram.Ngram(df, 'google_Ngram' + keyword + '_' + str(today), 'Title_without_stopwords')
+    if bool_store_google_clean == True:
+      information.savetoBucket_csv(df, 'newscleanedgooglenews', fname)
+    if bool_store_google_ngram == True:
+      create_Ngram.Ngram(df, 'google_Ngram' + keyword + '_' + str(today), 'Text_without_stopwords')
+      create_Ngram.Ngram(df, 'google_Ngram' + keyword + '_' + str(today), 'Title_without_stopwords')
 
     df['camefrom'] = 'GoogleNews'
 

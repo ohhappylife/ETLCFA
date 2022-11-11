@@ -13,7 +13,7 @@ from datetime import date
 import information
 from extract.politifact import politifact_crawler, politifact_transofrm
 from transform_general import create_Ngram, remove_stop_words
-
+from config import bool_store_politifact_ngram, s3_poltifiact_cleaned, bool_store_politifact_clean
 def crawlit(keyword):
   """
   collect news from Politifact and clean it.
@@ -32,10 +32,12 @@ def crawlit(keyword):
     today = date.today()
     fname = "cleaned_politifact_" + keyword + '_' + str(today) + '.csv'
 
-    information.savetoBucket_csv(df, 'newscleanedpolitifact', fname)
+    if bool_store_politifact_clean == True:
+      information.savetoBucket_csv(df, s3_poltifiact_cleaned, fname)
 
-    create_Ngram.Ngram(df, 'politifact_Ngram_' + keyword + str(today), 'Title_without_stopwords')
-    create_Ngram.Ngram(df, 'politifact_Ngram_' + keyword + str(today), 'Text_without_stopwords')
+    if bool_store_politifact_ngram == True:
+      create_Ngram.Ngram(df, 'politifact_Ngram_' + keyword + str(today), 'Title_without_stopwords')
+      create_Ngram.Ngram(df, 'politifact_Ngram_' + keyword + str(today), 'Text_without_stopwords')
 
     df['camefrom'] = 'politifact'
     return df

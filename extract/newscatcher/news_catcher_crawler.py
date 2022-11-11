@@ -3,6 +3,7 @@ import information
 from datetime import date
 import pandas as pd
 from validation_general import generateStatusCode
+from config import credential_news_carcher_key, bool_store_newscatcher_raw, s3_news_catcher_raw
 
 def newsCatcher(keyword):
   """
@@ -13,7 +14,7 @@ def newsCatcher(keyword):
   """
   today = date.today()
 
-  newscatcherapi = NewsCatcherApiClient(information.catcher())
+  newscatcherapi = NewsCatcherApiClient(credential_news_carcher_key)
   news_articles = newscatcherapi.get_search(q=keyword)
   df = pd.DataFrame.from_dict(news_articles, orient='index').T
   c = generateStatusCode.dataNotCollected(1, df)
@@ -26,9 +27,9 @@ def newsCatcher(keyword):
 
     generateStatusCode.dataNotCollected(3, df_temp)
     generateStatusCode.columnsChanged(3, df_temp)
-
-    fname = "raw_news_catcher_" + keyword +'_' + str(today) + '.csv'
-    information.savetoBucket_csv(df, 'newsrawnewscatcher', fname)
+    if bool_store_newscatcher_raw == True:
+      fname = "raw_news_catcher_" + keyword +'_' + str(today) + '.csv'
+      information.savetoBucket_csv(df, s3_news_catcher_raw, fname)
     return df_temp
   else:
     return df

@@ -1,9 +1,8 @@
 from datetime import datetime, timedelta
-from transform_general import remove_stop_words
 from datetime import date
 import pandas as pd
 import information
-
+from config import bool_store_google_unclean, s3_google_news_uncleaned
 now = datetime.now()
 
 def cleanIT(df_temp, keyword):
@@ -29,10 +28,10 @@ def cleanIT(df_temp, keyword):
   df['Label'] = 'Unknown'
   df['hasImage'] = df_temp['thumbnail'].notnull()
 
-  # Show the data set
-#  today = date.today()
-#  fname = "uncleared_google_" + keyword + '_' + str(today) + '.csv'
-#  information.savetoBucket_csv(df, 'newsdata', fname)
+  if bool_store_google_unclean == True:
+      today = date.today()
+      fname = "uncleared_google_" + keyword + '_' + str(today) + '.csv'
+      information.savetoBucket_csv(df, s3_google_news_uncleaned, fname)
   return df
 
 def hour(hour):

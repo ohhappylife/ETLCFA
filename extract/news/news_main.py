@@ -2,6 +2,8 @@ from extract.news import news_transform, news_crawler
 from transform_general import remove_stop_words, create_Ngram
 from datetime import date
 import information
+from config import bool_store_newsapi_clean, bool_store_newsapi_ngram
+
 
 def news(keyword):
   """
@@ -21,9 +23,11 @@ def news(keyword):
     today = date.today()
     fname = "cleaned_news_" +keyword + '_' + str(today) + '.csv'
 
-    information.savetoBucket_csv(df, 'newscleanednewsapi', fname)
-    create_Ngram.Ngram(df, 'news'  + keyword + '_' + str(today), 'Text_without_stopwords')
-    create_Ngram.Ngram(df, 'news'  + keyword + '_' + str(today) ,'Title_without_stopwords')
+    if bool_store_newsapi_clean == True:
+     information.savetoBucket_csv(df, 'newscleanednewsapi', fname)
+    if bool_store_newsapi_ngram == True:
+      create_Ngram.Ngram(df, 'news'  + keyword + '_' + str(today), 'Text_without_stopwords')
+      create_Ngram.Ngram(df, 'news'  + keyword + '_' + str(today) ,'Title_without_stopwords')
 
     df['camefrom'] = 'newsAPI'
 

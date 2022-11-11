@@ -41,10 +41,12 @@ def load_file(file_name):
 
 def readLinebyLine(file_name):
   ls = []
-  fn = str(file_name) + "txt"
+  fn = str(file_name)
   with open(fn, 'r') as read_obj:
     reader = csv.reader(read_obj)
     data = list(reader)
     for d in data:
-      ls.append(str(d).split(":")[1][0])
+      ls.append(str(d).split("=")[1].replace("'","").replace("]",""))
+      print(d)
+      print(ls)
     return ls

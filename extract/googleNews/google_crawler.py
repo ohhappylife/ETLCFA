@@ -1,8 +1,9 @@
 from datetime import date
 from serpapi import GoogleSearch
 import pandas as pd
-import information
 from validation_general import generateStatusCode
+from config import credential_google_key, bool_store_google_raw, s3_google_news_raw
+import information
 
 def crawlData(keyword):
     """
@@ -14,7 +15,7 @@ def crawlData(keyword):
     today = date.today()
 
     params = {
-        "api_key": information.google(), # Please user your own API Key.
+        "api_key": credential_google_key, # Please user your own API Key.
         "engine": "google",
         "q": keyword,     # keywords to be searched (Required)
         "gl": "us",
@@ -31,8 +32,9 @@ def crawlData(keyword):
     c = generateStatusCode.dataNotCollected(1, df_temp)
     if c == 1:
         generateStatusCode.columnsChanged(1, df_temp)
-        fname = "raw_google_" + keyword + '_' + str(today) + '.csv'
-        information.savetoBucket_csv(df_temp, 'newsrawgooglenews', fname)
+        if bool_store_google_raw == True:
+            fname = "raw_google_" + keyword + '_' + str(today) + '.csv'
+            information.savetoBucket_csv(df_temp, s3_google_news_raw, fname)
         return df_temp
 
     else:

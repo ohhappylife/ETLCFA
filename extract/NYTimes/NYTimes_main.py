@@ -2,6 +2,8 @@ from datetime import date
 import information
 from extract.NYTimes import NYTimesCrawler, NYTimes_transform
 from transform_general import create_Ngram, remove_stop_words
+from config import bool_store_nytimesapi_clean, bool_store_nytimesapi_ngram
+
 
 def crawlit(keyword):
   """
@@ -19,11 +21,13 @@ def crawlit(keyword):
     df = remove_stop_words.remove_stopwords(df, 'Text')
 
     today = date.today()
-    fname = "cleaned_NYTimes_" + keyword + '_' + str(today) + '.csv'
+    if bool_store_nytimesapi_clean == True:
+      fname = "cleaned_NYTimes_" + keyword + '_' + str(today) + '.csv'
+      information.savetoBucket_csv(df, 'newscleanednytimes', fname)
 
-    information.savetoBucket_csv(df, 'newscleanednytimes', fname)
-    create_Ngram.Ngram(df, 'NYTimes_Ngram_' + keyword + '_' + str(today), 'Text_without_stopwords')
-    create_Ngram.Ngram(df, 'NYTimes_Ngram_' + keyword + '_' + str(today), 'Title_without_stopwords')
+    if bool_store_nytimesapi_ngram == True:
+      create_Ngram.Ngram(df, 'NYTimes_Ngram_' + keyword + '_' + str(today), 'Text_without_stopwords')
+      create_Ngram.Ngram(df, 'NYTimes_Ngram_' + keyword + '_' + str(today), 'Title_without_stopwords')
 
     df['camefrom'] = 'NYTimes'
 

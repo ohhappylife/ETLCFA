@@ -12,7 +12,7 @@ import information
 import re
 import unicodedata
 import nltk
-
+from config import s3_ngram
 def basic_clean(text):
   """
   Clean text data for generating N-gram
@@ -42,6 +42,6 @@ def Ngram(df, name, col_name):
 
     ngram_title = (pd.Series(nltk.ngrams(title, i)).value_counts()).reset_index()
 
-    information.savetoBucket_csv(ngram_title, 'newsngram', ftitle)
+    information.savetoBucket_csv(ngram_title, s3_ngram, ftitle)
 
 

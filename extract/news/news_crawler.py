@@ -3,6 +3,7 @@ import information
 from datetime import date, timedelta
 import pandas as pd
 from validation_general import generateStatusCode
+from config import credential_news_api_key, bool_store_newsapi_raw, s3_news_api_raw
 
 
 def crawlData(keyword):
@@ -12,7 +13,7 @@ def crawlData(keyword):
   :return: collected news articles and its information.
   :rtype: dataframe
   """
-  newsapi = NewsApiClient(api_key=information.news())
+  newsapi = NewsApiClient(api_key=credential_news_api_key)
 
   yesterday = date.today() - timedelta(days=2)
   today = date.today()
@@ -39,8 +40,9 @@ def crawlData(keyword):
     generateStatusCode.dataNotCollected(2, df_temp)
     generateStatusCode.columnsChanged(2, df_temp)
 
-    fname = "raw_news_" + keyword + '_' + str(today) + '.csv'
-    information.savetoBucket_csv(df_temp, 'newsrawnewsapi', fname)
+    if bool_store_newsapi_raw == True:
+        fname = "raw_news_" + keyword + '_' + str(today) + '.csv'
+        information.savetoBucket_csv(df_temp, s3_news_api_raw, fname)
     return df_temp
 
   else:

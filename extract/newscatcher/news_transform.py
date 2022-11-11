@@ -1,7 +1,7 @@
-from newsapi.newsapi_client import NewsApiClient
 import information
-from datetime import date, timedelta
+from datetime import date
 import pandas as pd
+from config import bool_store_newscatcher_unclean, s3_news_catcher_uncleaned
 
 def cleanit(df_temp, keyword):
   """
@@ -27,7 +27,8 @@ def cleanit(df_temp, keyword):
   df['hasImage'] = False
 
   # Show the data set
-#  today = date.today()
-#  fname = "uncleared_news_catcher_" + keyword + '_' + str(today) + '.csv'
-#  information.savetoBucket_csv(df, 'newsdata', fname)
+  if bool_store_newscatcher_unclean == True:
+    today = date.today()
+    fname = "uncleared_news_catcher_" + keyword + '_' + str(today) + '.csv'
+    information.savetoBucket_csv(df, s3_news_catcher_uncleaned, fname)
   return df

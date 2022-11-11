@@ -24,6 +24,7 @@ import information
 import re
 
 from validation_general import generateStatusCode
+from config import bool_store_politifact_raw, s3_poltifiact_raw
 
 today = date.today()
 
@@ -125,9 +126,9 @@ def runit(keyword):
 
     fname = "raw_politifact_" + keyword + '_' + str(today) + '.csv'
     information.savetoBucket_csv(df, 'newsrawpolitifact', fname)
-
-#    fname = "uncleared_politifact_" + keyword + '_' + str(today) + '.csv'
-#    information.savetoBucket_csv(df, 'newsrawpolitifact', fname)
+    if bool_store_politifact_raw == True:
+      fname = "uncleared_politifact_" + keyword + '_' + str(today) + '.csv'
+      information.savetoBucket_csv(df, s3_poltifiact_raw, fname)
 
     return df
   else:

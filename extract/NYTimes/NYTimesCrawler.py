@@ -3,6 +3,7 @@ from pynytimes import NYTAPI
 import information
 import pandas as pd
 from validation_general import generateStatusCode
+from config import credential_NYTimes_key, bool_store_nytimesapi_raw, s3_ny_times_raw
 
 def runit(keyword, n = 1000):
   """
@@ -11,7 +12,7 @@ def runit(keyword, n = 1000):
   :return: collected news articles and its information.
   :rtype: dataframe
   """
-  nyt = NYTAPI(information.NYTimes(), parse_dates=True)
+  nyt = NYTAPI(credential_NYTimes_key, parse_dates=True)
 
   yesterday = date.today() - timedelta(days=2)
   today = date.today()
@@ -33,8 +34,9 @@ def runit(keyword, n = 1000):
     df_temp = pd.json_normalize(articles)
     generateStatusCode.dataNotCollected(5, df_temp)
     generateStatusCode.columnsChanged(5, df_temp)
-    fname = "raw_NYTimes_" + keyword + '_' + str(today) + '.csv'
-    information.savetoBucket_csv(df_temp, 'newsrawnytimes', fname)
+    if bool_store_nytimesapi_raw == True:
+      fname = "raw_NYTimes_" + keyword + '_' + str(today) + '.csv'
+      information.savetoBucket_csv(df_temp, s3_ny_times_raw, fname)
 
     return df_temp
   else:

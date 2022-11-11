@@ -1,6 +1,7 @@
 import information
 from datetime import date
 import pandas as pd
+from config import bool_store_nytimesapi_unclean, s3_ny_times_uncleaned
 
 def cleanit(df_temp, keyword):
   """
@@ -27,8 +28,9 @@ def cleanit(df_temp, keyword):
   df['hasImage'] = False
 
   # Show the data set
-#  today = date.today()
-#  fname = "uncleared_NYTimes_" + keyword + '_' + str(today) + '.csv'
-#  information.savetoBucket_csv(df, 'newsdata', fname)
+  if bool_store_nytimesapi_unclean == True:
+    today = date.today()
+    fname = "uncleared_NYTimes_" + keyword + '_' + str(today) + '.csv'
+    information.savetoBucket_csv(df, s3_ny_times_uncleaned, fname)
 
   return df
