@@ -51,8 +51,8 @@ except IndexError:
         dfny = NYTimes_main.crawlit(keyword)
         df = pd.concat([df, dfny])
         logger.debug("Crawl NYTimes")
-    if(bool_get_bing==False & bool_get_newsCatcher == False & bool_get_google==False
-            & bool_get_politifact == False & bool_get_newsApi==False & bool_get_nytimes==False):
+    if(bool_get_bing==False & bool_get_newsCatcher==False & bool_get_google==False
+            & bool_get_politifact==False & bool_get_newsApi==False & bool_get_nytimes==False):
         exit(-1)
 
 today = date.today()

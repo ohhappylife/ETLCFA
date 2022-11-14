@@ -9,8 +9,7 @@
 ## Output
 1. Uni-gram, Bi-gram, Tri-gram for each article and title will be created (by sources),
 2. Raw data will be created.
-3. Concatenated/individual cleaned data will be stored
-   - example: https://drive.google.com/file/d/1jmP28mt2O34NWnW6TB6AJ_Gv7g9dje1d/view?usp=sharing
+3. Data will be stored based on configurations.
 
 ## Source
 This will collect news from following sources:
