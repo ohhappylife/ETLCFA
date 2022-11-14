@@ -1,4 +1,5 @@
 import logging
+from config import loglevel
 # Logs will be stored on ETLlog.txt file
 # Change the level to log with different level (ERROR, CRITICAL, DEBUG ...)
 logger = logging
