@@ -3,7 +3,7 @@ import information
 from datetime import date, timedelta
 import pandas as pd
 from validation_general import generateStatusCode
-from config import credential_news_api_key, bool_store_newsapi_raw, s3_news_api_raw
+from config import credential_news_api_key, bool_store_newsapi_raw, s3_news_api_raw, timedelta
 
 
 def crawlData(keyword):
@@ -15,7 +15,7 @@ def crawlData(keyword):
   """
   newsapi = NewsApiClient(api_key=credential_news_api_key)
 
-  yesterday = date.today() - timedelta(days=2)
+  yesterday = date.today() - timedelta(days=timedelta)
   today = date.today()
 
   all_articles = newsapi.get_everything(q=keyword,

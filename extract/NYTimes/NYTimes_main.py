@@ -12,7 +12,7 @@ def crawlit(keyword):
   :return: cleaned news articles
   :rtype: dataframe
   """
-  df = NYTimesCrawler.runit(keyword, 1000)
+  df = NYTimesCrawler.runit(keyword)
   if len(df) == 0:
     pass
   else:

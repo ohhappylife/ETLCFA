@@ -3,9 +3,9 @@ from pynytimes import NYTAPI
 import information
 import pandas as pd
 from validation_general import generateStatusCode
-from config import credential_NYTimes_key, bool_store_nytimesapi_raw, s3_ny_times_raw
+from config import credential_NYTimes_key, bool_store_nytimesapi_raw, s3_ny_times_raw, timedelta, maxnumcollected
 
-def runit(keyword, n = 1000):
+def runit(keyword):
   """
   Crawl Nes data from NYTimes based on keyword
   :param string keyword: Keyword to be searched
@@ -14,12 +14,12 @@ def runit(keyword, n = 1000):
   """
   nyt = NYTAPI(credential_NYTimes_key, parse_dates=True)
 
-  yesterday = date.today() - timedelta(days=2)
+  yesterday = date.today() - timedelta(days=timedelta)
   today = date.today()
 
   articles = nyt.article_search(
     query=keyword,
-    results=n,
+    results=maxnumcollected,
     dates={
       "begin": datetime(int(yesterday.year), int(yesterday.month), int(yesterday.day)),
       "end": datetime(int(today.year), int(today.month), int(today.day))
