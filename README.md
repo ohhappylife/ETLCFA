@@ -35,7 +35,7 @@ This will collect news from following sources:
 ## How to use
 - Please install required library (refer Requirements.txt).
 - Set the config_example.py file, and change the file name into config.py.
-- - Run main.py {keyword} to start the process
+- Run main.py to start the process
 - Result (collected data, N-gram result, summarized text) will be stored on S3 Bucket.
 
 ## Issues (To-be fixed)

@@ -1,3 +1,5 @@
+# Please change file name into config.py
+keyword=["Russia","Ukraine"] #Please add keywords. #Please set the keywords into LIST.
 bool_get_politifact=True
 bool_get_bing=True
 bool_get_google=True
