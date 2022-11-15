@@ -1,5 +1,6 @@
 from extract.bingNews import bing_Crawler, bing_Transform
-from transform_general import remove_stop_words, create_Ngram, resolve_encoding_issues
+from transform_general import remove_stop_words, resolve_encoding_issues
+from Analyze_General import create_Ngram
 from datetime import date
 import information
 from config import s3_bing_news_cleaned, bool_store_bing_clean, bool_store_bing_ngram

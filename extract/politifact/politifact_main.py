@@ -12,7 +12,8 @@ from datetime import date
 
 import information
 from extract.politifact import politifact_crawler, politifact_transofrm
-from transform_general import create_Ngram, remove_stop_words
+from transform_general import remove_stop_words
+from Analyze_General import create_Ngram
 from config import bool_store_politifact_ngram, s3_poltifiact_cleaned, bool_store_politifact_clean
 def crawlit(keyword):
   """

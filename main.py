@@ -31,7 +31,7 @@ if bool_get_bing==True:
     df = pd.concat([df, dfb])
     logger.debug('Crawl Bing news')
 if bool_get_newsCatcher==True:
-    dfnc = news_catcher_main.googleNews(keyword)
+    dfnc = news_catcher_main.newsCatcher(keyword)
     df = pd.concat([df, dfnc])
     logger.debug("Crawl News Catcher")
 if bool_get_google==True:
@@ -54,7 +54,7 @@ if(bool_get_bing==False & bool_get_newsCatcher==False & bool_get_google==False
         & bool_get_politifact==False & bool_get_newsApi==False & bool_get_nytimes==False):
     exit(-1)
 
-if checkSize(df) > 0:
+if checkSize.checkrow(df) > 0:
     today = date.today()
     df = resolve_encoding_issues.resolveEncodeIssue(df)  # resolve some encode issues; temporary method
     df = df.reset_index(drop=True)
@@ -70,9 +70,9 @@ if checkSize(df) > 0:
     if bool_store_merged_excel==True:
         fname_excel = "merged_" + keyword + '_' + str(today) + '.xlsx'
     if bool_store_merged_csv == True:
-        information.savetoBucket_csv(df,s3_news_merged, fname_csv)
+        information.savetoBucket_csv(df, s3_news_merged, fname_csv)
     if bool_store_merged_excel == True:
-        information.savetoBucket_excel(df,s3_news_merged , fname_excel)
+        information.savetoBucket_excel(df, s3_news_merged , fname_excel)
 
 else:
     logger.error("no data collected")

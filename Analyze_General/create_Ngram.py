@@ -1,3 +1,4 @@
+from config import ngram_start, ngram_ends
 """
   create_Ngram.py
   Generating N-gram from sentences
@@ -37,7 +38,7 @@ def Ngram(df, name, col_name):
   """
   title = basic_clean(''.join(str(df[col_name].tolist())))
 
-  for i in range(1,4): # file name = {source_name}_title_n.csv
+  for i in range(ngram_start,ngram_ends+1): # file name = {source_name}_title_n.csv
     ftitle = name + "_" + col_name + '_' + str(i) + '.csv'
 
     ngram_title = (pd.Series(nltk.ngrams(title, i)).value_counts()).reset_index()

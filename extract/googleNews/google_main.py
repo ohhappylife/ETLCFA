@@ -2,7 +2,7 @@ from datetime import date
 import information
 import transform_general.remove_stop_words
 from extract.googleNews import google_crawler, google_transform
-from transform_general import create_Ngram
+from Analyze_General import create_Ngram
 from config import bool_store_google_clean, bool_store_google_ngram
 
 

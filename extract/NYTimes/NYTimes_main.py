@@ -1,7 +1,8 @@
 from datetime import date
 import information
 from extract.NYTimes import NYTimesCrawler, NYTimes_transform
-from transform_general import create_Ngram, remove_stop_words
+from transform_general import remove_stop_words
+from Analyze_General import create_Ngram
 from config import bool_store_nytimesapi_clean, bool_store_nytimesapi_ngram
 
 

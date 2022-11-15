@@ -66,3 +66,7 @@ credential_aws_key=""
 credential_aws_secret=""
 s3_ngram = ""
 loglevel="ERROR"
+timediff=2
+maxnumcollected=1000
+ngram_start=3
+ngram_ends=3

@@ -3,7 +3,7 @@ from pynytimes import NYTAPI
 import information
 import pandas as pd
 from validation_general import generateStatusCode
-from config import credential_NYTimes_key, bool_store_nytimesapi_raw, s3_ny_times_raw, timedelta, maxnumcollected
+from config import credential_NYTimes_key, bool_store_nytimesapi_raw, s3_ny_times_raw, timediff, maxnumcollected
 
 def runit(keyword):
   """
@@ -14,7 +14,7 @@ def runit(keyword):
   """
   nyt = NYTAPI(credential_NYTimes_key, parse_dates=True)
 
-  yesterday = date.today() - timedelta(days=timedelta)
+  yesterday = date.today() - timedelta(days=timediff)
   today = date.today()
 
   articles = nyt.article_search(
