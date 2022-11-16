@@ -53,5 +53,5 @@ This will collect news from following sources:
 ## Important
 - As of September 05, 2022, development is in progress; pipeline is NOT fault-tolerant and might be unstable.
 - Logs are currently stored into cwd, not S3 to minimize the cost.
-- Analyze Article.ipynb file contains information about each source.
+- Analyze Article.ipynb file contains information about each source (outdated as November 15th, will update soon).
 - column_information.csv file contains information about column for each source.

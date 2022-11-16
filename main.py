@@ -20,6 +20,9 @@ keywords = keywords
 if len(keywords)==0:
     logger.critical("err 001: No keyword is given")
     exit(-1)
+elif type(keywords)==str:
+    logger.critical("err 002: Wrong data type: given:string, required: list. Please set keyword in config file as a list")
+    exit(-1)
 else:
     for keyword in keywords:
         logger.debug("Received Keyword : " + str(keyword))
