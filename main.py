@@ -9,7 +9,7 @@ import pandas as pd
 from datetime import date
 from transform_general import resolve_encoding_issues
 import information
-from Analyze_General import extract_keyword, summraize_text
+from Analyze_General import summarize_texts, extract_keywords
 from config import s3_news_merged, bool_store_merged_csv, bool_store_merged_excel, bool_extract_keyworde, \
     bool_text_extract, bool_get_politifact, bool_get_google, bool_get_newsCatcher,bool_get_bing, bool_get_newsApi, bool_get_nytimes,keywords
 from validation_general import checkSize
@@ -61,9 +61,9 @@ else:
             df = df.drop(columns=['Unnamed: 0'])
             df.dropna(subset=['Author'], inplace=True)
             if bool_extract_keyworde==True:
-                df = extract_keyword.get_keyword(df)
+                df = extract_keywords.summarize(df)
             if bool_text_extract==True:
-                df = summraize_text.summarize(df)
+                df = summarize_texts.get_keyword(df)
             if bool_store_merged_csv==True:
                 fname_csv = "merged_" + keyword + '_' + str(today) + '.csv'
             if bool_store_merged_excel==True:
