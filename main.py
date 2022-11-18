@@ -1,4 +1,3 @@
-import sys
 from extract.newscatcher import news_catcher_main
 from extract.googleNews import google_main
 from extract.politifact import politifact_main
@@ -26,7 +25,6 @@ elif type(keywords)==str:
 else:
     for keyword in keywords:
         logger.debug("Received Keyword : " + str(keyword))
-
         df = pd.DataFrame(columns=['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
                                    'Language', 'Site_url', 'Main_img_url', 'Type','Label', 'hasImage'])
         if bool_get_bing==True:
@@ -56,14 +54,12 @@ else:
         if(bool_get_bing==False & bool_get_newsCatcher==False & bool_get_google==False
                 & bool_get_politifact==False & bool_get_newsApi==False & bool_get_nytimes==False):
             exit(-1)
-
         if checkSize.checkrow(df) > 0:
             today = date.today()
             df = resolve_encoding_issues.resolveEncodeIssue(df)  # resolve some encode issues; temporary method
             df = df.reset_index(drop=True)
             df = df.drop(columns=['Unnamed: 0'])
             df.dropna(subset=['Author'], inplace=True)
-
             if bool_extract_keyworde==True:
                 df = extract_keyword.get_keyword(df)
             if bool_text_extract==True:
@@ -76,7 +72,6 @@ else:
                 information.savetoBucket_csv(df, s3_news_merged, fname_csv)
             if bool_store_merged_excel == True:
                 information.savetoBucket_excel(df, s3_news_merged , fname_excel)
-
         else:
             logger.error("no data collected for keyword : "+ keyword)
         logger.debug("end the process")
