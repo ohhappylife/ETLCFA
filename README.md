@@ -1,15 +1,23 @@
 # ETLCFA
-
-## Usage
-1. Collects news article / title based on keywords from different news media.
-2. Clean the text data by removing stopwords, creating N-Gram from the text.
-3. Users can set keyword for the articles for search (except politifact).
-4. Users can leverage S3 to store and retrieve data.
+This will collect news from different sources (mainly APIs) based on keyword, and stored cleaned articles into the S3 Bucket.
 
 ## Output
-1. Uni-gram, Bi-gram, Tri-gram for each article and title will be created (by sources),
-2. Raw data will be created.
-3. Data will be stored based on configurations.
+- Cleaned data, which include following will be stored:
+  - Source
+  - Published Date
+  - Title
+  - Articles
+  - Title_without_stopwords	
+  - Text_without_stopwords	
+  - Language	
+  - Site_url	
+  - Main_img_url
+  - Image (whether news contains image)	
+  - API Source	
+  - summarized_text	
+  - Keyword of Title
+  - Keyword of Text
+- Raw data, uncleaned data, N-Gram data can be stored based on configuration.
 
 ## Source
 This will collect news from following sources:
@@ -49,9 +57,9 @@ This will collect news from following sources:
 - Users need to have valid API keys of the sources.
 - Users need to have AWS Account, and set S3 storage and s3 bucket for storing dataset.
 - Users need to have writing privilege on CWD to store log data.
+- Users need to install dependency (Requirement.txt)
 
 ## Important
-- As of September 05, 2022, development is in progress; pipeline is NOT fault-tolerant and might be unstable.
 - Logs are currently stored into cwd, not S3 to minimize the cost.
 - Analyze Article.ipynb file contains information about each source (outdated as November 15th, will update soon).
 - column_information.csv file contains information about column for each source.

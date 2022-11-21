@@ -61,7 +61,8 @@ else:
             df = df.drop(columns=['Unnamed: 0'])
             df.dropna(subset=['Author'], inplace=True)
             if bool_extract_keyworde==True:
-                df = extract_keywords.summarize(df)
+                df = extract_keywords.summarize(df, 'Text')
+                df = extract_keywords.summarize(df, 'Title')
             if bool_text_extract==True:
                 df = summarize_texts.get_keyword(df)
             df['keyword'] = keyword
