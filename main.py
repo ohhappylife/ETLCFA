@@ -64,6 +64,7 @@ else:
                 df = extract_keywords.summarize(df)
             if bool_text_extract==True:
                 df = summarize_texts.get_keyword(df)
+            df['keyword'] = keyword
             if bool_store_merged_csv==True:
                 fname_csv = "merged_" + keyword + '_' + str(today) + '.csv'
             if bool_store_merged_excel==True:
