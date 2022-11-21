@@ -1,6 +1,8 @@
 import information
 from datetime import date
 import pandas as pd
+
+import store_to_s3
 from config import bool_store_nytimesapi_unclean, s3_ny_times_uncleaned
 
 def cleanit(df_temp, keyword):
@@ -31,6 +33,6 @@ def cleanit(df_temp, keyword):
   if bool_store_nytimesapi_unclean == True:
     today = date.today()
     fname = "uncleared_NYTimes_" + keyword + '_' + str(today) + '.csv'
-    information.savetoBucket_csv(df, s3_ny_times_uncleaned, fname)
+    store_to_s3.savetoBucket_csv(df, s3_ny_times_uncleaned, fname)
 
   return df

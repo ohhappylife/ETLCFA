@@ -1,11 +1,8 @@
 from datetime import date
-
-import information
 import transform_general.remove_stop_words
 from Analyze_General import create_Ngram
 from extract.newscatcher import news_catcher_crawler, news_transform
 from config import bool_store_newscatcher_clean, bool_store_newscatcher_ngram
-
 
 def newsCatcher(keyword):
   """

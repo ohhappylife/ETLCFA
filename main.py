@@ -1,3 +1,4 @@
+import store_to_s3
 from extract.newscatcher import news_catcher_main
 from extract.googleNews import google_main
 from extract.politifact import politifact_main
@@ -8,7 +9,6 @@ from extract.bingNews import bing_main
 import pandas as pd
 from datetime import date
 from transform_general import resolve_encoding_issues
-import information
 from Analyze_General import summarize_texts, extract_keywords
 from config import s3_news_merged, bool_store_merged_csv, bool_store_merged_excel, bool_extract_keyworde, \
     bool_text_extract, bool_get_politifact, bool_get_google, bool_get_newsCatcher,bool_get_bing, bool_get_newsApi, bool_get_nytimes,keywords
@@ -70,9 +70,9 @@ else:
             if bool_store_merged_excel==True:
                 fname_excel = "merged_" + keyword + '_' + str(today) + '.xlsx'
             if bool_store_merged_csv == True:
-                information.savetoBucket_csv(df, s3_news_merged, fname_csv)
+                store_to_s3.savetoBucket_csv(df, s3_news_merged, fname_csv)
             if bool_store_merged_excel == True:
-                information.savetoBucket_excel(df, s3_news_merged , fname_excel)
+                store_to_s3.savetoBucket_excel(df, s3_news_merged , fname_excel)
         else:
             logger.error("no data collected for keyword : "+ keyword)
         logger.debug("end the process")
