@@ -1,5 +1,6 @@
 from datetime import date
-import information
+
+import store_to_s3
 import transform_general.remove_stop_words
 from extract.googleNews import google_crawler, google_transform
 from Analyze_General import create_Ngram
@@ -24,7 +25,7 @@ def googleNews(keyword):
     today = date.today()
     fname = "cleaned_google_" +keyword + '_' + str(today) + '.csv'
     if bool_store_google_clean == True:
-      information.savetoBucket_csv(df, 'newscleanedgooglenews', fname)
+      store_to_s3.savetoBucket_csv(df, 'newscleanedgooglenews', fname)
     if bool_store_google_ngram == True:
       create_Ngram.Ngram(df, 'google_Ngram' + keyword + '_' + str(today), 'Text_without_stopwords')
       create_Ngram.Ngram(df, 'google_Ngram' + keyword + '_' + str(today), 'Title_without_stopwords')

@@ -1,8 +1,8 @@
+import store_to_s3
 from extract.news import news_transform, news_crawler
 from transform_general import remove_stop_words
 from Analyze_General import create_Ngram
 from datetime import date
-import information
 from config import bool_store_newsapi_clean, bool_store_newsapi_ngram
 
 
@@ -25,7 +25,7 @@ def news(keyword):
     fname = "cleaned_news_" +keyword + '_' + str(today) + '.csv'
 
     if bool_store_newsapi_clean == True:
-     information.savetoBucket_csv(df, 'newscleanednewsapi', fname)
+     store_to_s3.savetoBucket_csv(df, 'newscleanednewsapi', fname)
     if bool_store_newsapi_ngram == True:
       create_Ngram.Ngram(df, 'news' + keyword + '_' + str(today), 'Text_without_stopwords')
       create_Ngram.Ngram(df, 'news' + keyword + '_' + str(today), 'Title_without_stopwords')

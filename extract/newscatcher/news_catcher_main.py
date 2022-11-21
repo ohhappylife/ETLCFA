@@ -1,4 +1,6 @@
 from datetime import date
+
+import store_to_s3
 import transform_general.remove_stop_words
 from Analyze_General import create_Ngram
 from extract.newscatcher import news_catcher_crawler, news_transform
@@ -22,7 +24,7 @@ def newsCatcher(keyword):
     today = date.today()
     fname = "cleaned_news_catcher_" + str(today) + '.csv'
     if bool_store_newscatcher_clean == True:
-      information.savetoBucket_csv(df, 'newscleanedgooglenews', fname)
+      store_to_s3.savetoBucket_csv(df, 'newscleanedgooglenews', fname)
     if bool_store_newscatcher_ngram == True:
       create_Ngram.Ngram(df, 'news_catcher_' + keyword + '_' + str(today), 'Text_without_stopwords')
       create_Ngram.Ngram(df, 'news_catcher_' + keyword + '_' + str(today), 'Title_without_stopwords')

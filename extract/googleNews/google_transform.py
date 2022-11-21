@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta
 from datetime import date
 import pandas as pd
-import information
+
+import store_to_s3
 from config import bool_store_google_unclean, s3_google_news_uncleaned
 now = datetime.now()
 
@@ -31,7 +32,7 @@ def cleanIT(df_temp, keyword):
   if bool_store_google_unclean == True:
       today = date.today()
       fname = "uncleared_google_" + keyword + '_' + str(today) + '.csv'
-      information.savetoBucket_csv(df, s3_google_news_uncleaned, fname)
+      store_to_s3.savetoBucket_csv(df, s3_google_news_uncleaned, fname)
   return df
 
 def hour(hour):

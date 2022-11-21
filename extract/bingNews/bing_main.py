@@ -1,8 +1,8 @@
+import store_to_s3
 from extract.bingNews import bing_Crawler, bing_Transform
 from transform_general import remove_stop_words, resolve_encoding_issues
 from Analyze_General import create_Ngram
 from datetime import date
-import information
 from config import s3_bing_news_cleaned, bool_store_bing_clean, bool_store_bing_ngram
 
 def bingNews(keyword):
@@ -26,7 +26,7 @@ def bingNews(keyword):
     today = date.today()
     fname = "cleaned_bing_" + keyword + '_' + str(today) + '.csv'
     if bool_store_bing_clean == True:
-      information.savetoBucket_csv(df, s3_bing_news_cleaned, fname)
+      store_to_s3.savetoBucket_csv(df, s3_bing_news_cleaned, fname)
     if bool_store_bing_ngram == True:
       create_Ngram.Ngram(df, 'bing_Ngram_' + keyword + '_' + str(today), 'Title_without_stopwords')
       create_Ngram.Ngram(df, 'bing_Ngram' + keyword + '_' + str(today), 'Text_without_stopwords')

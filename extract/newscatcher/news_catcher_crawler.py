@@ -1,7 +1,8 @@
 from newscatcherapi import NewsCatcherApiClient
-import information
 from datetime import date
 import pandas as pd
+
+import store_to_s3
 from validation_general import generateStatusCode
 from config import credential_news_carcher_key, bool_store_newscatcher_raw, s3_news_catcher_raw
 
@@ -29,7 +30,7 @@ def newsCatcher(keyword):
     generateStatusCode.columnsChanged(3, df_temp)
     if bool_store_newscatcher_raw == True:
       fname = "raw_news_catcher_" + keyword +'_' + str(today) + '.csv'
-      information.savetoBucket_csv(df, s3_news_catcher_raw, fname)
+      store_to_s3.savetoBucket_csv(df, s3_news_catcher_raw, fname)
     return df_temp
   else:
     return df

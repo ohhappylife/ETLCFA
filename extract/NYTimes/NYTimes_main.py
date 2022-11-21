@@ -1,5 +1,6 @@
 from datetime import date
-import information
+
+import store_to_s3
 from extract.NYTimes import NYTimesCrawler, NYTimes_transform
 from transform_general import remove_stop_words
 from Analyze_General import create_Ngram
@@ -24,7 +25,7 @@ def crawlit(keyword):
     today = date.today()
     if bool_store_nytimesapi_clean == True:
       fname = "cleaned_NYTimes_" + keyword + '_' + str(today) + '.csv'
-      information.savetoBucket_csv(df, 'newscleanednytimes', fname)
+      store_to_s3.savetoBucket_csv(df, 'newscleanednytimes', fname)
 
     if bool_store_nytimesapi_ngram == True:
       create_Ngram.Ngram(df, 'NYTimes_Ngram_' + keyword + '_' + str(today), 'Text_without_stopwords')

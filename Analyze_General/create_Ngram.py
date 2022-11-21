@@ -1,3 +1,4 @@
+import store_to_s3
 from config import ngram_start, ngram_ends
 """
   create_Ngram.py
@@ -9,7 +10,6 @@ __email__ = "sshon2@alumni.jh.edu"
 __status__ = "Production"
 
 import pandas as pd
-import information
 import re
 import unicodedata
 import nltk
@@ -43,6 +43,6 @@ def Ngram(df, name, col_name):
 
     ngram_title = (pd.Series(nltk.ngrams(title, i)).value_counts()).reset_index()
 
-    information.savetoBucket_csv(ngram_title, s3_ngram, ftitle)
+    store_to_s3.savetoBucket_csv(ngram_title, s3_ngram, ftitle)
 
 

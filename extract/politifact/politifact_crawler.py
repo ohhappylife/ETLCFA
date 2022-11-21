@@ -15,14 +15,12 @@ __status__ = "Production"
 
 from datetime import date
 from time import strptime
-
 from bs4 import BeautifulSoup
 import pandas as pd
 import requests
-
-import information
 import re
 
+import store_to_s3
 from validation_general import generateStatusCode
 from config import bool_store_politifact_raw, s3_poltifiact_raw
 
@@ -125,10 +123,10 @@ def runit(keyword):
     generateStatusCode.dataNotCollected(4, df)
 
     fname = "raw_politifact_" + keyword + '_' + str(today) + '.csv'
-    information.savetoBucket_csv(df, 'newsrawpolitifact', fname)
+    store_to_s3.savetoBucket_csv(df, 'newsrawpolitifact', fname)
     if bool_store_politifact_raw == True:
       fname = "uncleared_politifact_" + keyword + '_' + str(today) + '.csv'
-      information.savetoBucket_csv(df, s3_poltifiact_raw, fname)
+      store_to_s3.savetoBucket_csv(df, s3_poltifiact_raw, fname)
 
     return df
   else:

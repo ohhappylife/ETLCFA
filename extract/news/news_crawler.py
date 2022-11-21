@@ -1,10 +1,10 @@
 from newsapi.newsapi_client import NewsApiClient
-import information
 from datetime import date, timedelta
 import pandas as pd
+
+import store_to_s3
 from validation_general import generateStatusCode
 from config import credential_news_api_key, bool_store_newsapi_raw, s3_news_api_raw, timediff
-
 
 def crawlData(keyword):
   """
@@ -42,7 +42,7 @@ def crawlData(keyword):
 
     if bool_store_newsapi_raw == True:
         fname = "raw_news_" + keyword + '_' + str(today) + '.csv'
-        information.savetoBucket_csv(df_temp, s3_news_api_raw, fname)
+        store_to_s3.savetoBucket_csv(df_temp, s3_news_api_raw, fname)
     return df_temp
 
   else:

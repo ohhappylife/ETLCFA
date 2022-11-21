@@ -10,7 +10,7 @@ __status__ = "Production"
 
 from datetime import date
 
-import information
+import store_to_s3
 from extract.politifact import politifact_crawler, politifact_transofrm
 from transform_general import remove_stop_words
 from Analyze_General import create_Ngram
@@ -34,7 +34,7 @@ def crawlit(keyword):
     fname = "cleaned_politifact_" + keyword + '_' + str(today) + '.csv'
 
     if bool_store_politifact_clean == True:
-      information.savetoBucket_csv(df, s3_poltifiact_cleaned, fname)
+      store_to_s3.savetoBucket_csv(df, s3_poltifiact_cleaned, fname)
 
     if bool_store_politifact_ngram == True:
       create_Ngram.Ngram(df, 'politifact_Ngram_' + keyword + str(today), 'Title_without_stopwords')

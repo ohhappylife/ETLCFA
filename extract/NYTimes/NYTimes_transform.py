@@ -1,4 +1,3 @@
-import information
 from datetime import date
 import pandas as pd
 

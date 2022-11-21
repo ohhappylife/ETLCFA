@@ -1,7 +1,8 @@
 from datetime import datetime
 import pandas as pd
 from datetime import date
-import information
+
+import store_to_s3
 from config import s3_bing_news_uncleaned, bool_store_bing_unclean
 
 now = datetime.now()
@@ -32,5 +33,5 @@ def cleanIT(df_temp,keyword):
   today = date.today()
   if bool_store_bing_unclean == True:
     fname = "uncleared_bingNews_" + keyword + '_' + str(today) + '.csv'
-    information.savetoBucket_csv(df, s3_bing_news_uncleaned, fname)
+    store_to_s3.savetoBucket_csv(df, s3_bing_news_uncleaned, fname)
   return df

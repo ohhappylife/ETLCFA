@@ -1,7 +1,8 @@
 from datetime import date, timedelta, datetime
 from pynytimes import NYTAPI
-import information
 import pandas as pd
+
+import store_to_s3
 from validation_general import generateStatusCode
 from config import credential_NYTimes_key, bool_store_nytimesapi_raw, s3_ny_times_raw, timediff, maxnumcollected
 
@@ -36,7 +37,7 @@ def runit(keyword):
     generateStatusCode.columnsChanged(5, df_temp)
     if bool_store_nytimesapi_raw == True:
       fname = "raw_NYTimes_" + keyword + '_' + str(today) + '.csv'
-      information.savetoBucket_csv(df_temp, s3_ny_times_raw, fname)
+      store_to_s3.savetoBucket_csv(df_temp, s3_ny_times_raw, fname)
 
     return df_temp
   else:
