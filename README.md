@@ -46,9 +46,6 @@ This will collect news from following sources:
 - Run main.py to start the process
 - Result (collected data, N-gram result, summarized text) will be stored on S3 Bucket.
 
-## Issues (To-be fixed)
-- As it utilizes default list of stopwords from NLTK, not all stopwords might be removed during the process.
-
 ## Limitations
 - Some sources provide limited information
   - Politifact does not have articles.
