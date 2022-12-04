@@ -1,6 +1,6 @@
 from config import summarizer_numOfKeywords, summarizer_deduplication_threshold, summarizer_max_ngram_size
 import yake
-def summarize(df, col):
+def get_keywords(df, col):
   df['keyword_'+col] = 'missing'
   language = 'en'
   custom_kw_extractor = yake.KeywordExtractor(lan=language,

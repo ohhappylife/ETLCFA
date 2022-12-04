@@ -62,10 +62,10 @@ else:
             df.dropna(subset=['Author'], inplace=True)
             df.fillna("Missing Value", inplace=True)
             if bool_extract_keyworde==True:
-                df = extract_keywords.summarize(df, 'Text')
-                df = extract_keywords.summarize(df, 'Title')
+                df = extract_keywords.get_keywords(df, 'Text')
+                df = extract_keywords.get_keywords(df, 'Title')
             if bool_text_extract==True:
-                df = summarize_texts.get_keyword(df)
+                df = summarize_texts.summarize_article(df)
             df['keyword'] = keyword
             if bool_store_merged_csv==True:
                 fname_csv = "merged_" + keyword + '_' + str(today) + '.csv'
