@@ -26,7 +26,7 @@ else:
     for keyword in keywords:
         logger.debug("Received Keyword : " + str(keyword))
         df = pd.DataFrame(columns=['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
-                                   'Language', 'Site_url', 'Main_img_url', 'Type','Label', 'hasImage'])
+                                   'Language', 'Site_url', 'Main_img_url', 'Type','Label', 'hasImage', 'keyword_Text', 'keyword_Title'])
         if bool_get_bing==True:
             dfb = bing_main.bingNews(keyword)
             df = pd.concat([df, dfb])
@@ -60,6 +60,7 @@ else:
             df = df.reset_index(drop=True)
             df = df.drop(columns=['Unnamed: 0'])
             df.dropna(subset=['Author'], inplace=True)
+            df.fillna("Missing Value", inplace=True)
             if bool_extract_keyworde==True:
                 df = extract_keywords.summarize(df, 'Text')
                 df = extract_keywords.summarize(df, 'Title')
