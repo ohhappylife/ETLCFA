@@ -49,6 +49,7 @@ This will collect news from following sources:
 ## Limitations
 - Some sources provide limited information
   - Politifact does not have articles.
+- Column information (column_information.py) is out-dated; this will be updated soon.
 
 ## Requirements
 - Users need to have valid API keys of the sources.
