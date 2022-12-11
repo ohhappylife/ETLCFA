@@ -55,7 +55,7 @@ This will collect news from following sources:
 - Users need to have valid API keys of the sources.
 - Users need to have AWS Account, and set S3 storage and s3 bucket for storing dataset.
 - Users need to have writing privilege on CWD to store log data.
-- Users need to install dependency (Requirements.txt)
+- Users need to install dependency (refer to Requirements.txt)
 
 ## Important
 - Logs are currently stored into cwd, not S3 to minimize the cost.
