@@ -2,11 +2,10 @@ import requests
 import json
 from datetime import date
 import pandas as pd
-
 import store_to_s3
 from validation_general import generateStatusCode
-today = date.today()
 from config import credential_Bing_key, s3_bing_news_raw, bool_store_bing_raw
+today = date.today()
 def crawlIt(keyword):
   """
   Crawl news articles from Bing News based on keyword.

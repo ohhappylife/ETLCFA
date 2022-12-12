@@ -1,5 +1,4 @@
 from datetime import date
-
 import store_to_s3
 import transform_general.remove_stop_words
 from Analyze_General import create_Ngram

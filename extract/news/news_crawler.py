@@ -1,7 +1,6 @@
 from newsapi.newsapi_client import NewsApiClient
 from datetime import date, timedelta
 import pandas as pd
-
 import store_to_s3
 from validation_general import generateStatusCode
 from config import credential_news_api_key, bool_store_newsapi_raw, s3_news_api_raw, timediff

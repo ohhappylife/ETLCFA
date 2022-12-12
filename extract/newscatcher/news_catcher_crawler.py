@@ -1,7 +1,6 @@
 from newscatcherapi import NewsCatcherApiClient
 from datetime import date
 import pandas as pd
-
 import store_to_s3
 from validation_general import generateStatusCode
 from config import credential_news_carcher_key, bool_store_newscatcher_raw, s3_news_catcher_raw

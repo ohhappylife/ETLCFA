@@ -1,11 +1,9 @@
 from datetime import date
-
 import store_to_s3
 import transform_general.remove_stop_words
 from extract.googleNews import google_crawler, google_transform
 from Analyze_General import create_Ngram
 from config import bool_store_google_clean, bool_store_google_ngram
-
 
 def googleNews(keyword):
   """

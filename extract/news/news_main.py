@@ -5,7 +5,6 @@ from Analyze_General import create_Ngram
 from datetime import date
 from config import bool_store_newsapi_clean, bool_store_newsapi_ngram
 
-
 def news(keyword):
   """
   collect news from NewsAPI based on a keyword and clean it.

@@ -1,14 +1,5 @@
 import store_to_s3
 from config import ngram_start, ngram_ends
-"""
-  create_Ngram.py
-  Generating N-gram from sentences
-"""
-__author__ = "Shon"
-__version__ = "1.0.1"
-__email__ = "sshon2@alumni.jh.edu"
-__status__ = "Production"
-
 import pandas as pd
 import re
 import unicodedata

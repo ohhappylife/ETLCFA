@@ -1,6 +1,5 @@
 from datetime import date
 import pandas as pd
-
 import store_to_s3
 from config import bool_store_newscatcher_unclean, s3_news_catcher_uncleaned
 

@@ -9,7 +9,6 @@ __email__ = "sshon2@alumni.jh.edu"
 __status__ = "Production"
 
 from datetime import date
-
 import store_to_s3
 from extract.politifact import politifact_crawler, politifact_transofrm
 from transform_general import remove_stop_words

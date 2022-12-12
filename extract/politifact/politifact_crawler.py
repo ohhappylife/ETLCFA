@@ -19,7 +19,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 import re
-
 import store_to_s3
 from validation_general import generateStatusCode
 from config import bool_store_politifact_raw, s3_poltifiact_raw

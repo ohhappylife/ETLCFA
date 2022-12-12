@@ -1,7 +1,6 @@
 from datetime import date, timedelta, datetime
 from pynytimes import NYTAPI
 import pandas as pd
-
 import store_to_s3
 from validation_general import generateStatusCode
 from config import credential_NYTimes_key, bool_store_nytimesapi_raw, s3_ny_times_raw, timediff, maxnumcollected
