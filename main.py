@@ -26,7 +26,7 @@ else:
     for keyword in keywords:
         logger.debug("Received Keyword : " + str(keyword))
         df = pd.DataFrame(columns=['Author', 'Published Date', 'Title', 'Text', 'Title_without_stopwords', 'Text_without_stopwords',
-                                   'Language', 'Site_url', 'Main_img_url', 'Type','Label', 'hasImage', 'keyword_Text', 'keyword_Title'])
+                                   'Language', 'Site_url', 'Main_img_url', 'Type','Label', 'hasImage'])
         if bool_get_bing==True:
             dfb = bing_main.bingNews(keyword)
             df = pd.concat([df, dfb])
