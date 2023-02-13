@@ -19,7 +19,7 @@ This will collect news from different sources (mainly APIs) based on keyword, an
   - Keyword of Text
 - Raw data, uncleaned data, N-Gram data can be stored based on configuration.
 
-## Source
+## Source*
 This will collect news from following sources:
   - Google News - It utilized SerpAPI for crawling news data from Google.
     - https://news.google.com/
@@ -39,6 +39,7 @@ This will collect news from following sources:
   - Bing News
     - https://www.bing.com/news
       - Request API key from MS Azure (https://portal.azure.com/#create/microsoft.bingsearch).
+* Users might need to apply for a license, which can incur costs, based on the usage.
 
 ## How to use
 - Please install required library (refer Requirements.txt).
