@@ -1,4 +1,4 @@
-import store_to_s3
+from Load import store_to_s3
 from config import ngram_start, ngram_ends
 import pandas as pd
 import re

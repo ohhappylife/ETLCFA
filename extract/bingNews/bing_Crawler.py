@@ -2,7 +2,7 @@ import requests
 import json
 from datetime import date
 import pandas as pd
-import store_to_s3
+from Load import store_to_s3
 from validation_general import generateStatusCode
 from config import credential_Bing_key, s3_bing_news_raw, bool_store_bing_raw
 today = date.today()
@@ -32,7 +32,7 @@ def crawlIt(keyword):
     generateStatusCode.columnsChanged(6, df_temp)
     if bool_store_bing_raw == True:
       fname = "raw_bing_" + keyword + '_' + str(today) + '.csv'
-      store_to_s3.savetoBucket_csv(df_temp, s3_bing_news_raw , fname)
+      store_to_s3.savetoBucket_csv(df_temp, s3_bing_news_raw, fname)
     return df_temp
   else:
     return df_temp

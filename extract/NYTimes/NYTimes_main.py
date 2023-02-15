@@ -1,5 +1,5 @@
 from datetime import date
-import store_to_s3
+from Load import store_to_s3
 from extract.NYTimes import NYTimesCrawler, NYTimes_transform
 from transform_general import remove_stop_words
 from Analyze_General import create_Ngram

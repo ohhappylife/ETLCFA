@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from datetime import date
 import pandas as pd
-import store_to_s3
+from Load import store_to_s3
 from config import bool_store_google_unclean, s3_google_news_uncleaned
 now = datetime.now()
 

@@ -1,4 +1,4 @@
-import store_to_s3
+from Load import store_to_s3
 from extract.bingNews import bing_Crawler, bing_Transform
 from transform_general import remove_stop_words, resolve_encoding_issues
 from Analyze_General import create_Ngram

@@ -1,4 +1,4 @@
-import store_to_s3
+from Load import store_to_s3
 from extract.newscatcher import news_catcher_main
 from extract.googleNews import google_main
 from extract.politifact import politifact_main
@@ -74,7 +74,7 @@ else:
             if bool_store_merged_csv == True:
                 store_to_s3.savetoBucket_csv(df, s3_news_merged_csv, fname_csv)
             if bool_store_merged_excel == True:
-                store_to_s3.savetoBucket_excel(df, s3_news_merged_excel , fname_excel)
+                store_to_s3.savetoBucket_excel(df, s3_news_merged_excel, fname_excel)
         else:
             logger.error("no data collected for keyword : "+ keyword)
         logger.debug("end the process")

@@ -1,7 +1,7 @@
 from datetime import date
 from serpapi import GoogleSearch
 import pandas as pd
-import store_to_s3
+from Load import store_to_s3
 from validation_general import generateStatusCode
 from config import credential_google_key, bool_store_google_raw, s3_google_news_raw
 

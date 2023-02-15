@@ -1,5 +1,5 @@
 from datetime import date
-import store_to_s3
+from Load import store_to_s3
 import transform_general.remove_stop_words
 from extract.googleNews import google_crawler, google_transform
 from Analyze_General import create_Ngram

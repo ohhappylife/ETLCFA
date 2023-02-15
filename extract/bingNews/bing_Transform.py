@@ -1,7 +1,7 @@
 from datetime import datetime
 import pandas as pd
 from datetime import date
-import store_to_s3
+from Load import store_to_s3
 from config import s3_bing_news_uncleaned, bool_store_bing_unclean
 
 now = datetime.now()
