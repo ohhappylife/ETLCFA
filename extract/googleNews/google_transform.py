@@ -45,9 +45,14 @@ def day(day):
     return mod_date
 
 def month(month):
-    mod_date = now + timedelta(months = -month)
-    mod_date = str(mod_date.year) + '-' + str(mod_date.month) + '-' + str(mod_date.hour)
-    return mod_date
+    if month == 1:
+        mod_date = now
+        return str(mod_date.year) + '-' + str(mod_date.month) + '-' + str(mod_date.hour)
+    else:
+        mod_date = now + timedelta(months = -month)
+        mod_date = str(mod_date.year) + '-' + str(mod_date.month) + '-' + str(mod_date.hour)
+        return mod_date
+
 
 def changeDateType(df):
 
